@@ -496,4 +496,14 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
         } catch (Exception $e) {
         }
     }
+
+    public function __sleep()
+    {
+        throw new \BadMethodCallException('Cannot serialize '.__CLASS__);
+    }
+
+    public function __wakeup()
+    {
+        throw new \BadMethodCallException('Cannot unserialize '.__CLASS__);
+    }
 }
