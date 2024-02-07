@@ -25,6 +25,9 @@
         "mockery/mockery": "~0.9.1",
         "symfony/phpunit-bridge": "~3.2"
     },
+    "replace": {
+        "swiftmailer/swiftmailer": "^5"
+    },
     "autoload": {
         "files": ["lib/swift_required.php"]
     },
