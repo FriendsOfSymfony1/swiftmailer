@@ -1,3 +1,12 @@
+![Build Status](https://github.com/FriendsOfSymfony1/swiftmailer/actions/workflows/tests.yml/badge.svg)
+
+About this version
+------------------
+
+This is a community driven fork of swiftmailer, as official support has been [ended in November 2021](https://symfony.com/blog/the-end-of-swiftmailer).
+
+**Do not use it for new projects: the aim of this fork is to make this library compatible with never php versions, but [the newer Symfony Mailer Compontent](https://symfony.com/doc/current/mailer.html) is the way to go today.**
+
 Swift Mailer
 ------------
 
@@ -15,11 +24,7 @@ to use in complex web application with a great deal of flexibility.
 
 For full details on usage, read the [documentation](https://swiftmailer.symfony.com/docs/introduction.html).
 
-Sponsors
---------
+Contributing
+------------
 
-<div>
-    <a href="https://blackfire.io/docs/introduction?utm_source=swiftmailer&utm_medium=github_readme&utm_campaign=logo">
-        <img src="https://static.blackfire.io/assets/intemporals/logo/png/blackfire-io_secondary_horizontal_transparent.png?1" width="255px" alt="Blackfire.io">
-    </a>
-</div>
+You can send pull requests or create an issue.
