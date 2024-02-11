@@ -8,6 +8,7 @@ class Swift_Mime_MimePartAcceptanceTest extends \PHPUnit\Framework\TestCase
     private $cache;
     private $headers;
     private $emailValidator;
+    private $idGenerator;
 
     protected function setUp()
     {

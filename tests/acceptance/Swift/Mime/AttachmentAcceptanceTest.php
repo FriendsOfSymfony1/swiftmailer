@@ -8,6 +8,7 @@ class Swift_Mime_AttachmentAcceptanceTest extends \PHPUnit\Framework\TestCase
     private $cache;
     private $headers;
     private $emailValidator;
+    private $idGenerator;
 
     protected function setUp()
     {
