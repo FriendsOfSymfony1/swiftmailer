@@ -53,4 +53,3 @@ jobs:
         run: vendor/bin/simple-phpunit --verbose
         env:
           SYMFONY_PHPUNIT_REMOVE_RETURN_TYPEHINT: 1
-          SYMFONY_DEPRECATIONS_HELPER: weak
