@@ -16,16 +16,16 @@
 class Swift_Mime_SimpleMimeEntity implements Swift_Mime_CharsetObserver, Swift_Mime_EncodingObserver
 {
     /** Main message document; there can only be one of these */
-    const LEVEL_TOP = 16;
+    public const LEVEL_TOP = 16;
 
     /** An entity which nests with the same precedence as an attachment */
-    const LEVEL_MIXED = 256;
+    public const LEVEL_MIXED = 256;
 
     /** An entity which nests with the same precedence as a mime part */
-    const LEVEL_ALTERNATIVE = 4096;
+    public const LEVEL_ALTERNATIVE = 4096;
 
     /** An entity which nests with the same precedence as embedded content */
-    const LEVEL_RELATED = 65536;
+    public const LEVEL_RELATED = 65536;
 
     /** A collection of Headers for this mime entity */
     private $headers;
@@ -306,7 +306,7 @@ class Swift_Mime_SimpleMimeEntity implements Swift_Mime_CharsetObserver, Swift_M
         foreach ($children as $child) {
             $level = $this->getNeededChildLevel($child, $compoundLevel);
             if (empty($immediateChildren)) {
-                //first iteration
+                // first iteration
                 $immediateChildren = [$child];
             } else {
                 $nextLevel = $this->getNeededChildLevel($immediateChildren[0], $compoundLevel);
@@ -368,7 +368,6 @@ class Swift_Mime_SimpleMimeEntity implements Swift_Mime_CharsetObserver, Swift_M
      * Set the body of this entity, either as a string, or as an instance of
      * {@link Swift_OutputByteStream}.
      *
-     * @param mixed  $body
      * @param string $contentType optional
      *
      * @return $this
@@ -434,9 +433,9 @@ class Swift_Mime_SimpleMimeEntity implements Swift_Mime_CharsetObserver, Swift_M
      *
      * @param string $boundary
      *
-     * @throws Swift_RfcComplianceException
-     *
      * @return $this
+     *
+     * @throws Swift_RfcComplianceException
      */
     public function setBoundary($boundary)
     {
@@ -637,7 +636,7 @@ class Swift_Mime_SimpleMimeEntity implements Swift_Mime_CharsetObserver, Swift_M
         if (\count($this->immediateChildren)) {
             $this->setHeaderParameter('Content-Type', 'boundary',
                 $this->getBoundary()
-                );
+            );
             $this->headers->remove('Content-Transfer-Encoding');
         } else {
             $this->setHeaderParameter('Content-Type', 'boundary', null);

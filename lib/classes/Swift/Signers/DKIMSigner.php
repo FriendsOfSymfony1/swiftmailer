@@ -98,8 +98,6 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
 
     /**
      * When the signature has been applied (true means time()), false means not embedded.
-     *
-     * @var mixed
      */
     protected $signatureTimestamp = true;
 
@@ -159,7 +157,7 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
 
     private $bodyCanonSpace = false;
 
-    private $bodyCanonLastChar = null;
+    private $bodyCanonLastChar;
 
     private $bodyCanonLine = '';
 
@@ -283,9 +281,9 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
      *
      * @param string $hash 'rsa-sha1' or 'rsa-sha256'
      *
-     * @throws Swift_SwiftException
-     *
      * @return $this
+     *
+     * @throws Swift_SwiftException
      */
     public function setHashAlgorithm($hash)
     {
@@ -655,9 +653,9 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
     }
 
     /**
-     * @throws Swift_SwiftException
-     *
      * @return string
+     *
+     * @throws Swift_SwiftException
      */
     private function getEncryptedHash()
     {

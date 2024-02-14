@@ -3,14 +3,14 @@
 /**
  * @todo
  */
-class Swift_Signers_OpenDKIMSignerTest extends \SwiftMailerTestCase
+class Swift_Signers_OpenDKIMSignerTest extends SwiftMailerTestCase
 {
     protected function setUp()
     {
         if (!\extension_loaded('opendkim')) {
             $this->markTestSkipped(
                 'Need OpenDKIM extension run these tests.'
-             );
+            );
         }
     }
 

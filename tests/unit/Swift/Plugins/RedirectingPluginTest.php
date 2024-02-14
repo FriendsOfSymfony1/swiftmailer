@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Plugins_RedirectingPluginTest extends \PHPUnit\Framework\TestCase
+class Swift_Plugins_RedirectingPluginTest extends PHPUnit\Framework\TestCase
 {
     public function testRecipientCanBeSetAndFetched()
     {

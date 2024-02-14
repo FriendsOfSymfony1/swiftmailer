@@ -1,6 +1,6 @@
 <?php
 
-class Swift_MailerTest extends \SwiftMailerTestCase
+class Swift_MailerTest extends SwiftMailerTestCase
 {
     public function testTransportIsStartedWhenSending()
     {
@@ -56,7 +56,7 @@ class Swift_MailerTest extends \SwiftMailerTestCase
         $message = $this->createMessage();
         $transport->shouldReceive('send')
                   ->once()
-                  ->with($message, \Mockery::any());
+                  ->with($message, Mockery::any());
 
         $mailer = $this->createMailer($transport);
         $mailer->send($message);
@@ -68,7 +68,7 @@ class Swift_MailerTest extends \SwiftMailerTestCase
         $message = $this->createMessage();
         $transport->shouldReceive('send')
                   ->once()
-                  ->with($message, \Mockery::any())
+                  ->with($message, Mockery::any())
                   ->andReturn(57);
 
         $mailer = $this->createMailer($transport);

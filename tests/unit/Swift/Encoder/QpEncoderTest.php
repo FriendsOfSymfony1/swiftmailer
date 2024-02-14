@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Encoder_QpEncoderTest extends \SwiftMailerTestCase
+class Swift_Encoder_QpEncoderTest extends SwiftMailerTestCase
 {
     /* -- RFC 2045, 6.7 --
     (1)   (General 8bit representation) Any octet, except a CR or
@@ -76,10 +76,10 @@ class Swift_Encoder_QpEncoderTest extends \SwiftMailerTestCase
                     intermediate transport agents.
                     */
 
-        $HT = \chr(0x09); //9
-        $SPACE = \chr(0x20); //32
+        $HT = \chr(0x09); // 9
+        $SPACE = \chr(0x20); // 32
 
-        //HT
+        // HT
         $string = 'a'.$HT.$HT."\r\n".'b';
 
         $charStream = $this->createCharStream();
@@ -101,9 +101,9 @@ class Swift_Encoder_QpEncoderTest extends \SwiftMailerTestCase
         $this->assertEquals(
             'a'.$HT.'=09'."\r\n".'b',
             $encoder->encodeString($string)
-            );
+        );
 
-        //SPACE
+        // SPACE
         $string = 'a'.$SPACE.$SPACE."\r\n".'b';
 
         $charStream = $this->createCharStream();
@@ -125,7 +125,7 @@ class Swift_Encoder_QpEncoderTest extends \SwiftMailerTestCase
         $this->assertEquals(
             'a'.$SPACE.'=20'."\r\n".'b',
             $encoder->encodeString($string)
-            );
+        );
     }
 
     public function testCRLFIsLeftAlone()
@@ -278,7 +278,7 @@ class Swift_Encoder_QpEncoderTest extends \SwiftMailerTestCase
 
             $this->assertEquals(
                 sprintf('=%02X', $ordinal), $encoder->encodeString($char)
-                );
+            );
         }
     }
 
@@ -334,7 +334,7 @@ class Swift_Encoder_QpEncoderTest extends \SwiftMailerTestCase
 
             $this->assertEquals(
                 sprintf('=%02X', $ordinal), $encoder->encodeString($char)
-                );
+            );
         }
     }
 
@@ -369,7 +369,7 @@ class Swift_Encoder_QpEncoderTest extends \SwiftMailerTestCase
         $this->assertEquals(
             $output, $encoder->encodeString($input, 22),
             '%s: First line should start at offset 22 so can only have max length 54'
-            );
+        );
     }
 
     public function testTextIsPreWrapped()
@@ -382,7 +382,7 @@ class Swift_Encoder_QpEncoderTest extends \SwiftMailerTestCase
 
         $this->assertEquals(
             $input, $encoder->encodeString($input)
-            );
+        );
     }
 
     private function createCharStream()

@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Transport_Esmtp_AuthHandlerTest extends \SwiftMailerTestCase
+class Swift_Transport_Esmtp_AuthHandlerTest extends SwiftMailerTestCase
 {
     private $agent;
 
@@ -42,22 +42,22 @@ class Swift_Transport_Esmtp_AuthHandlerTest extends \SwiftMailerTestCase
         $mixins = $auth->exposeMixinMethods();
         $this->assertTrue(\in_array('getUsername', $mixins),
             '%s: getUsername() should be accessible via mixin'
-            );
+        );
         $this->assertTrue(\in_array('setUsername', $mixins),
             '%s: setUsername() should be accessible via mixin'
-            );
+        );
         $this->assertTrue(\in_array('getPassword', $mixins),
             '%s: getPassword() should be accessible via mixin'
-            );
+        );
         $this->assertTrue(\in_array('setPassword', $mixins),
             '%s: setPassword() should be accessible via mixin'
-            );
+        );
         $this->assertTrue(\in_array('setAuthMode', $mixins),
             '%s: setAuthMode() should be accessible via mixin'
-            );
+        );
         $this->assertTrue(\in_array('getAuthMode', $mixins),
             '%s: getAuthMode() should be accessible via mixin'
-            );
+        );
     }
 
     public function testAuthenticatorsAreCalledAccordingToParamsAfterEhlo()

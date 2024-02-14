@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Signers_SMimeSignerTest extends \PHPUnit\Framework\TestCase
+class Swift_Signers_SMimeSignerTest extends PHPUnit\Framework\TestCase
 {
     /**
      * @var Swift_StreamFilters_StringReplacementFilterFactory

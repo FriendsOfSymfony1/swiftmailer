@@ -42,7 +42,7 @@ class Swift_Mime_Headers_IdentificationHeader extends Swift_Mime_Headers_Abstrac
      *
      * @param string $name
      */
-    public function __construct($name, EmailValidator $emailValidator, Swift_AddressEncoder $addressEncoder = null)
+    public function __construct($name, EmailValidator $emailValidator, ?Swift_AddressEncoder $addressEncoder = null)
     {
         $this->setFieldName($name);
         $this->emailValidator = $emailValidator;
@@ -66,8 +66,6 @@ class Swift_Mime_Headers_IdentificationHeader extends Swift_Mime_Headers_Abstrac
      * Set the model for the field body.
      *
      * This method takes a string ID, or an array of IDs.
-     *
-     * @param mixed $model
      *
      * @throws Swift_RfcComplianceException
      */
@@ -152,9 +150,9 @@ class Swift_Mime_Headers_IdentificationHeader extends Swift_Mime_Headers_Abstrac
      *
      * @see toString()
      *
-     * @throws Swift_RfcComplianceException
-     *
      * @return string
+     *
+     * @throws Swift_RfcComplianceException
      */
     public function getFieldBody()
     {

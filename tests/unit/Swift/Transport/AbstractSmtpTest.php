@@ -1,6 +1,6 @@
 <?php
 
-abstract class Swift_Transport_AbstractSmtpTest extends \SwiftMailerTestCase
+abstract class Swift_Transport_AbstractSmtpTest extends SwiftMailerTestCase
 {
     abstract protected function getTransport($buf);
 
@@ -389,7 +389,7 @@ abstract class Swift_Transport_AbstractSmtpTest extends \SwiftMailerTestCase
             E: 550, 551, 552, 553, 450, 451, 452, 503, 550
         */
 
-        //We'll treat 252 as accepted since it isn't really a failure
+        // We'll treat 252 as accepted since it isn't really a failure
 
         $buf = $this->getBuffer();
         $smtp = $this->getTransport($buf);
@@ -689,7 +689,7 @@ abstract class Swift_Transport_AbstractSmtpTest extends \SwiftMailerTestCase
         $smtp->start();
         $this->assertEquals(2, $smtp->send($message),
             '%s: 1 of 3 recipients failed so 2 should be returned'
-            );
+        );
     }
 
     public function testRsetIsSentIfNoSuccessfulRecipients()
@@ -739,7 +739,7 @@ abstract class Swift_Transport_AbstractSmtpTest extends \SwiftMailerTestCase
         $smtp->start();
         $this->assertEquals(0, $smtp->send($message),
             '%s: 1 of 1 recipients failed so 0 should be returned'
-            );
+        );
     }
 
     public function testSuccessfulDataCommand()

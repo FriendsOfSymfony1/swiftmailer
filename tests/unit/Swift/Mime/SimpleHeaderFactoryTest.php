@@ -2,7 +2,7 @@
 
 use Egulias\EmailValidator\EmailValidator;
 
-class Swift_Mime_SimpleHeaderFactoryTest extends \PHPUnit\Framework\TestCase
+class Swift_Mime_SimpleHeaderFactoryTest extends PHPUnit\Framework\TestCase
 {
     private $factory;
 
@@ -27,7 +27,7 @@ class Swift_Mime_SimpleHeaderFactoryTest extends \PHPUnit\Framework\TestCase
     {
         $header = $this->factory->createMailboxHeader('X-Foo',
             ['foo@bar' => 'FooBar']
-            );
+        );
         $this->assertEquals(['foo@bar' => 'FooBar'], $header->getFieldBodyModel());
     }
 
@@ -45,7 +45,7 @@ class Swift_Mime_SimpleHeaderFactoryTest extends \PHPUnit\Framework\TestCase
 
     public function testDateHeaderHasCorrectModel()
     {
-        $dateTime = new \DateTimeImmutable();
+        $dateTime = new DateTimeImmutable();
         $header = $this->factory->createDateHeader('X-Date', $dateTime);
         $this->assertEquals($dateTime, $header->getFieldBodyModel());
     }
@@ -90,7 +90,7 @@ class Swift_Mime_SimpleHeaderFactoryTest extends \PHPUnit\Framework\TestCase
     {
         $header = $this->factory->createParameterizedHeader('X-Foo', 'bar',
             ['zip' => 'button']
-            );
+        );
         $this->assertEquals(['zip' => 'button'], $header->getParameters());
     }
 
@@ -154,7 +154,7 @@ class Swift_Mime_SimpleHeaderFactoryTest extends \PHPUnit\Framework\TestCase
             $paramEncoder
                 ?: $this->createParamEncoder(),
             new EmailValidator()
-            );
+        );
     }
 
     private function createHeaderEncoder()

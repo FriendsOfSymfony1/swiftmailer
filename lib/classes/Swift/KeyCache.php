@@ -16,10 +16,10 @@
 interface Swift_KeyCache
 {
     /** Mode for replacing existing cached data */
-    const MODE_WRITE = 1;
+    public const MODE_WRITE = 1;
 
     /** Mode for appending data to the end of existing cached data */
-    const MODE_APPEND = 2;
+    public const MODE_APPEND = 2;
 
     /**
      * Set a string into the cache under $itemKey for the namespace $nsKey.
@@ -56,7 +56,7 @@ interface Swift_KeyCache
      *
      * @return Swift_InputByteStream
      */
-    public function getInputByteStream($nsKey, $itemKey, Swift_InputByteStream $is = null);
+    public function getInputByteStream($nsKey, $itemKey, ?Swift_InputByteStream $is = null);
 
     /**
      * Get data back out of the cache as a string.

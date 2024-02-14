@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Bug38Test extends \PHPUnit\Framework\TestCase
+class Swift_Bug38Test extends PHPUnit\Framework\TestCase
 {
     private $attFile;
     private $attFileName;
@@ -172,7 +172,7 @@ class Swift_Bug38Test extends \PHPUnit\Framework\TestCase
             "\r\n\r\n".
             '--'.$boundary.'--'."\r\n".
             '$~D'
-            ;
+        ;
 
         $message->toByteStream($streamA);
         $message->toByteStream($streamB);

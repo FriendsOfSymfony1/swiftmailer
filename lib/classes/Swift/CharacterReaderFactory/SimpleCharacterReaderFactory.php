@@ -71,7 +71,7 @@ class Swift_CharacterReaderFactory_SimpleCharacterReaderFactory implements Swift
             'constructor' => [],
             ];
 
-        //7-8 bit charsets
+        // 7-8 bit charsets
         self::$map['(us-)?ascii'] = $singleByte;
         self::$map['(iso|iec)-?8859-?[0-9]+'] = $singleByte;
         self::$map['windows-?125[0-9]'] = $singleByte;
@@ -84,10 +84,10 @@ class Swift_CharacterReaderFactory_SimpleCharacterReaderFactory implements Swift
         self::$map['(cork|t1)'] = $singleByte;
         self::$map['v?iscii'] = $singleByte;
 
-        //16 bits
+        // 16 bits
         self::$map['(ucs-?2|utf-?16)'] = $doubleByte;
 
-        //32 bits
+        // 32 bits
         self::$map['(ucs-?4|utf-?32)'] = $fourBytes;
 
         // Fallback

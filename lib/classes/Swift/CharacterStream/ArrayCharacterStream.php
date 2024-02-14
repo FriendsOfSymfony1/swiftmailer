@@ -92,8 +92,8 @@ class Swift_CharacterStream_ArrayCharacterStream implements Swift_CharacterStrea
             $size = \count($c);
             $need = $this->charReader
                 ->validateByteSequence($c, $size);
-            if ($need > 0 &&
-                false !== $bytes = $os->read($need)) {
+            if ($need > 0
+                && false !== $bytes = $os->read($need)) {
                 for ($i = 0, $len = \strlen($bytes); $i < $len; ++$i) {
                     $c[] = self::$byteMap[$bytes[$i]];
                 }

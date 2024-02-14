@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Encoder_Base64EncoderAcceptanceTest extends \PHPUnit\Framework\TestCase
+class Swift_Encoder_Base64EncoderAcceptanceTest extends PHPUnit\Framework\TestCase
 {
     private $samplesDir;
     private $encoder;
@@ -35,7 +35,7 @@ class Swift_Encoder_Base64EncoderAcceptanceTest extends \PHPUnit\Framework\TestC
                         base64_decode($encodedText), $text,
                         '%s: Encoded string should decode back to original string for sample '.
                         $sampleDir.'/'.$sampleFile
-                        );
+                    );
                 }
                 closedir($fileFp);
             }

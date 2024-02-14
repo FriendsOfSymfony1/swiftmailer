@@ -2,7 +2,7 @@
 
 use Mockery as m;
 
-class Swift_Bug518Test extends \SwiftMailerTestCase
+class Swift_Bug518Test extends SwiftMailerTestCase
 {
     public function testIfEmailChangesAfterQueued()
     {
@@ -12,7 +12,7 @@ class Swift_Bug518Test extends \SwiftMailerTestCase
 
         $that = $this;
         $messageValidation = function ($m) use ($that) {
-            //the getTo should return the same value as we put in
+            // the getTo should return the same value as we put in
             $that->assertEquals('foo@bar.com', key($m->getTo()), 'The message has changed after it was put to the memory queue');
 
             return true;

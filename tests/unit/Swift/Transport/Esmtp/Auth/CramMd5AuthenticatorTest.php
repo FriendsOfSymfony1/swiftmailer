@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Transport_Esmtp_Auth_CramMd5AuthenticatorTest extends \SwiftMailerTestCase
+class Swift_Transport_Esmtp_Auth_CramMd5AuthenticatorTest extends SwiftMailerTestCase
 {
     private $agent;
 
@@ -29,16 +29,16 @@ class Swift_Transport_Esmtp_Auth_CramMd5AuthenticatorTest extends \SwiftMailerTe
              ->andReturn('334 '.base64_encode('<foo@bar>')."\r\n");
         $this->agent->shouldReceive('executeCommand')
              ->once()
-             ->with(\Mockery::any(), [235]);
+             ->with(Mockery::any(), [235]);
 
         $this->assertTrue($cram->authenticate($this->agent, 'jack', 'pass'),
             '%s: The buffer accepted all commands authentication should succeed'
-            );
+        );
     }
 
     public function testAuthenticationFailureSendRset()
     {
-        $this->expectException(\Swift_TransportException::class);
+        $this->expectException(Swift_TransportException::class);
 
         $cram = $this->getAuthenticator();
 
@@ -48,7 +48,7 @@ class Swift_Transport_Esmtp_Auth_CramMd5AuthenticatorTest extends \SwiftMailerTe
              ->andReturn('334 '.base64_encode('<foo@bar>')."\r\n");
         $this->agent->shouldReceive('executeCommand')
              ->once()
-             ->with(\Mockery::any(), [235])
+             ->with(Mockery::any(), [235])
              ->andThrow(new Swift_TransportException(''));
         $this->agent->shouldReceive('executeCommand')
              ->once()

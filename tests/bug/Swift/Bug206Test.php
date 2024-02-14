@@ -2,7 +2,7 @@
 
 use Egulias\EmailValidator\EmailValidator;
 
-class Swift_Bug206Test extends \PHPUnit\Framework\TestCase
+class Swift_Bug206Test extends PHPUnit\Framework\TestCase
 {
     private $factory;
 

@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Bug111Test extends \PHPUnit\Framework\TestCase
+class Swift_Bug111Test extends PHPUnit\Framework\TestCase
 {
     public function testUnstructuredHeaderSlashesShouldNotBeEscaped()
     {

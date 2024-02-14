@@ -17,8 +17,8 @@
  */
 class Swift_Transport_Esmtp_Auth_NTLMAuthenticator implements Swift_Transport_Esmtp_Authenticator
 {
-    const NTLMSIG = "NTLMSSP\x00";
-    const DESCONST = 'KGS!@#$%';
+    public const NTLMSIG = "NTLMSSP\x00";
+    public const DESCONST = 'KGS!@#$%';
 
     /**
      * Get the name of the AUTH mechanism this Authenticator handles.
@@ -31,9 +31,7 @@ class Swift_Transport_Esmtp_Auth_NTLMAuthenticator implements Swift_Transport_Es
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @throws \LogicException
+     * @throws LogicException
      */
     public function authenticate(Swift_Transport_SmtpAgent $agent, $username, $password)
     {
@@ -182,7 +180,7 @@ class Swift_Transport_Esmtp_Auth_NTLMAuthenticator implements Swift_Transport_Es
     protected function sendMessage3($response, $username, $password, $timestamp, $client, Swift_Transport_SmtpAgent $agent, $v2 = true)
     {
         list($domain, $username) = $this->getDomainAndUsername($username);
-        //$challenge, $context, $targetInfoH, $targetName, $domainName, $workstation, $DNSDomainName, $DNSServerName, $blob, $ter
+        // $challenge, $context, $targetInfoH, $targetName, $domainName, $workstation, $DNSDomainName, $DNSServerName, $blob, $ter
         list($challenge, , , , , $workstation, , , $blob) = $this->parseMessage2($response);
 
         if (!$v2) {
@@ -429,7 +427,7 @@ class Swift_Transport_Esmtp_Auth_NTLMAuthenticator implements Swift_Transport_Es
         $len = \strlen($key);
         for ($i = 1; $i < $len; ++$i) {
             list($high, $low) = str_split(bin2hex($key[$i]));
-            $v = $this->castToByte(\ord($key[$i - 1]) << (7 + 1 - $i) | $this->uRShift(hexdec(dechex(hexdec($high) & 0xf).dechex(hexdec($low) & 0xf)), $i));
+            $v = $this->castToByte(\ord($key[$i - 1]) << (7 + 1 - $i) | $this->uRShift(hexdec(dechex(hexdec($high) & 0xF).dechex(hexdec($low) & 0xF)), $i));
             $material[] = str_pad(substr(dechex($v), -2), 2, '0', STR_PAD_LEFT); // cast to byte
         }
         $material[] = str_pad(substr(dechex($this->castToByte(\ord($key[6]) << 1)), -2), 2, '0');
@@ -445,7 +443,7 @@ class Swift_Transport_Esmtp_Auth_NTLMAuthenticator implements Swift_Transport_Es
             if ($needsParity) {
                 $material[$k] = dechex(hexdec($high) | 0x0).dechex(hexdec($low) | 0x1);
             } else {
-                $material[$k] = dechex(hexdec($high) & 0xf).dechex(hexdec($low) & 0xe);
+                $material[$k] = dechex(hexdec($high) & 0xF).dechex(hexdec($low) & 0xE);
             }
         }
 

@@ -64,7 +64,6 @@ class Swift_Transport_StreamBuffer extends Swift_ByteStream_AbstractFilterableIn
      * Set an individual param on the buffer (e.g. switching to SSL).
      *
      * @param string $param
-     * @param mixed  $value
      */
     public function setParam($param, $value)
     {
@@ -138,7 +137,7 @@ class Swift_Transport_StreamBuffer extends Swift_ByteStream_AbstractFilterableIn
             if (!isset($this->translations[$search])) {
                 $this->addFilter(
                     $this->replacementFactory->createFilter($search, $replace), $search
-                    );
+                );
                 $this->translations[$search] = true;
             }
         }

@@ -45,7 +45,6 @@ class Swift_Mime_MimePart extends Swift_Mime_SimpleMimeEntity
      * Set the body of this entity, either as a string, or as an instance of
      * {@link Swift_OutputByteStream}.
      *
-     * @param mixed  $body
      * @param string $contentType optional
      * @param string $charset     optional
      *

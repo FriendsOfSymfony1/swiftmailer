@@ -80,9 +80,9 @@ class Swift_Mime_ContentEncoder_NativeQpContentEncoder implements Swift_Mime_Con
      * @param int    $firstLineOffset if first line needs to be shorter
      * @param int    $maxLineLength   0 indicates the default length for this encoding
      *
-     * @throws RuntimeException
-     *
      * @return string
+     *
+     * @throws RuntimeException
      */
     public function encodeString($string, $firstLineOffset = 0, $maxLineLength = 0)
     {

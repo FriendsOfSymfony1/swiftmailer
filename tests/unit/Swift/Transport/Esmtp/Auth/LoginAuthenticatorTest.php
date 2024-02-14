@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Transport_Esmtp_Auth_LoginAuthenticatorTest extends \SwiftMailerTestCase
+class Swift_Transport_Esmtp_Auth_LoginAuthenticatorTest extends SwiftMailerTestCase
 {
     private $agent;
 
@@ -31,12 +31,12 @@ class Swift_Transport_Esmtp_Auth_LoginAuthenticatorTest extends \SwiftMailerTest
 
         $this->assertTrue($login->authenticate($this->agent, 'jack', 'pass'),
             '%s: The buffer accepted all commands authentication should succeed'
-            );
+        );
     }
 
     public function testAuthenticationFailureSendRset()
     {
-        $this->expectException(\Swift_TransportException::class);
+        $this->expectException(Swift_TransportException::class);
 
         $login = $this->getAuthenticator();
 

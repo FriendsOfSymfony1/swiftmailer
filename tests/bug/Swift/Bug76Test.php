@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Bug76Test extends \PHPUnit\Framework\TestCase
+class Swift_Bug76Test extends PHPUnit\Framework\TestCase
 {
     private $inputFile;
     private $outputFile;
@@ -30,7 +30,7 @@ class Swift_Bug76Test extends \PHPUnit\Framework\TestCase
         $os = $this->createStream($this->inputFile);
         $is = $this->createStream($this->outputFile);
 
-        $this->encoder->encodeByteStream($os, $is, 0, 80); //Exceeds 76
+        $this->encoder->encodeByteStream($os, $is, 0, 80); // Exceeds 76
 
         $this->assertMaxLineLength(76, $this->outputFile,
             '%s: Line length should not exceed 76 characters'
@@ -41,7 +41,7 @@ class Swift_Bug76Test extends \PHPUnit\Framework\TestCase
     {
         $lines = file($filePath);
         foreach ($lines as $line) {
-            $this->assertTrue((\strlen(trim($line)) <= 76), $message);
+            $this->assertTrue(\strlen(trim($line)) <= 76, $message);
         }
     }
 

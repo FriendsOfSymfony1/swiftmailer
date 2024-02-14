@@ -35,9 +35,6 @@ class Swift_Transport_Esmtp_Auth_XOAuth2Authenticator implements Swift_Transport
         return 'XOAUTH2';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function authenticate(Swift_Transport_SmtpAgent $agent, $email, $token)
     {
         try {

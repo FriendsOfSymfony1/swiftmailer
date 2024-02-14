@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Plugins_LoggerPluginTest extends \SwiftMailerTestCase
+class Swift_Plugins_LoggerPluginTest extends SwiftMailerTestCase
 {
     public function testLoggerDelegatesAddingEntries()
     {

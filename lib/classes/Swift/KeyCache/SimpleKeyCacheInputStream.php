@@ -25,7 +25,7 @@ class Swift_KeyCache_SimpleKeyCacheInputStream implements Swift_KeyCache_KeyCach
     private $itemKey;
 
     /** A stream to write through on each write() */
-    private $writeThrough = null;
+    private $writeThrough;
 
     /**
      * Set the KeyCache to wrap.
@@ -49,11 +49,11 @@ class Swift_KeyCache_SimpleKeyCacheInputStream implements Swift_KeyCache_KeyCach
      * @param string                $bytes
      * @param Swift_InputByteStream $is    optional
      */
-    public function write($bytes, Swift_InputByteStream $is = null)
+    public function write($bytes, ?Swift_InputByteStream $is = null)
     {
         $this->keyCache->setString(
             $this->nsKey, $this->itemKey, $bytes, Swift_KeyCache::MODE_APPEND
-            );
+        );
         if (isset($is)) {
             $is->write($bytes);
         }

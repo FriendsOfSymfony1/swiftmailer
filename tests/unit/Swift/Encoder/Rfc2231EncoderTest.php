@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Encoder_Rfc2231EncoderTest extends \SwiftMailerTestCase
+class Swift_Encoder_Rfc2231EncoderTest extends SwiftMailerTestCase
 {
     private $rfc2045Token = '/^[\x21\x23-\x27\x2A\x2B\x2D\x2E\x30-\x39\x41-\x5A\x5E-\x7E]+$/D';
 
@@ -104,7 +104,7 @@ class Swift_Encoder_Rfc2231EncoderTest extends \SwiftMailerTestCase
             str_repeat('a', 50),
             $encoded,
             '%s: Lines should be wrapped at each 75 characters'
-            );
+        );
     }
 
     public function testFirstLineCanHaveShorterLength()
@@ -136,6 +136,6 @@ class Swift_Encoder_Rfc2231EncoderTest extends \SwiftMailerTestCase
             str_repeat('a', 75),
             $encoded,
             '%s: First line should be 25 bytes shorter than the others.'
-            );
+        );
     }
 }

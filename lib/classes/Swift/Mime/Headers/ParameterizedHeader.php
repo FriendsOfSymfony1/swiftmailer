@@ -20,7 +20,7 @@ class Swift_Mime_Headers_ParameterizedHeader extends Swift_Mime_Headers_Unstruct
      *
      * @var string
      */
-    const TOKEN_REGEX = '(?:[\x21\x23-\x27\x2A\x2B\x2D\x2E\x30-\x39\x41-\x5A\x5E-\x7E]+)';
+    public const TOKEN_REGEX = '(?:[\x21\x23-\x27\x2A\x2B\x2D\x2E\x30-\x39\x41-\x5A\x5E-\x7E]+)';
 
     /**
      * The Encoder used to encode the parameters.
@@ -41,7 +41,7 @@ class Swift_Mime_Headers_ParameterizedHeader extends Swift_Mime_Headers_Unstruct
      *
      * @param string $name
      */
-    public function __construct($name, Swift_Mime_HeaderEncoder $encoder, Swift_Encoder $paramEncoder = null)
+    public function __construct($name, Swift_Mime_HeaderEncoder $encoder, ?Swift_Encoder $paramEncoder = null)
     {
         parent::__construct($name, $encoder);
         $this->paramEncoder = $paramEncoder;
@@ -124,7 +124,7 @@ class Swift_Mime_Headers_ParameterizedHeader extends Swift_Mime_Headers_Unstruct
      *
      * @return string
      */
-    public function getFieldBody() //TODO: Check caching here
+    public function getFieldBody() // TODO: Check caching here
     {
         $body = parent::getFieldBody();
         foreach ($this->params as $name => $value) {
@@ -158,7 +158,7 @@ class Swift_Mime_Headers_ParameterizedHeader extends Swift_Mime_Headers_Unstruct
                 $tokens[\count($tokens) - 1] .= ';';
                 $tokens = array_merge($tokens, $this->generateTokenLines(
                     ' '.$this->createParameter($name, $value)
-                    ));
+                ));
             }
         }
 
@@ -192,7 +192,7 @@ class Swift_Mime_Headers_ParameterizedHeader extends Swift_Mime_Headers_Unstruct
                 $maxValueLength = $this->getMaxLineLength() - \strlen($name.'*N*="";') - 1;
                 $firstLineOffset = \strlen(
                     $this->getCharset()."'".$this->getLanguage()."'"
-                    );
+                );
             }
         }
 
@@ -201,7 +201,7 @@ class Swift_Mime_Headers_ParameterizedHeader extends Swift_Mime_Headers_Unstruct
             if (isset($this->paramEncoder)) {
                 $value = $this->paramEncoder->encodeString(
                     $origValue, $firstLineOffset, $maxValueLength, $this->getCharset()
-                    );
+                );
             } else {
                 // We have to go against RFC 2183/2231 in some areas for interoperability
                 $value = $this->getTokenAsEncodedWord($origValue);
@@ -223,7 +223,7 @@ class Swift_Mime_Headers_ParameterizedHeader extends Swift_Mime_Headers_Unstruct
         } else {
             return $name.$this->getEndOfParameterValue(
                 $valueLines[0], $encoded, true
-                );
+            );
         }
     }
 

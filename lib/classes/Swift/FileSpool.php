@@ -85,9 +85,9 @@ class Swift_FileSpool extends Swift_ConfigurableSpool
      *
      * @param Swift_Mime_SimpleMessage $message The message to store
      *
-     * @throws Swift_IoException
-     *
      * @return bool
+     *
+     * @throws Swift_IoException
      */
     public function queueMessage(Swift_Mime_SimpleMessage $message)
     {

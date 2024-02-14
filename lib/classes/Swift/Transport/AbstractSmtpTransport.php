@@ -30,7 +30,7 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
     protected $addressEncoder;
 
     /** Whether the PIPELINING SMTP extension is enabled (RFC 2920) */
-    protected $pipelining = null;
+    protected $pipelining;
 
     /** The pipelined commands waiting for response */
     protected $pipeline = [];
@@ -46,7 +46,7 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
      *
      * @param string $localDomain
      */
-    public function __construct(Swift_Transport_IoBuffer $buf, Swift_Events_EventDispatcher $dispatcher, $localDomain = '127.0.0.1', Swift_AddressEncoder $addressEncoder = null)
+    public function __construct(Swift_Transport_IoBuffer $buf, Swift_Events_EventDispatcher $dispatcher, $localDomain = '127.0.0.1', ?Swift_AddressEncoder $addressEncoder = null)
     {
         $this->buffer = $buf;
         $this->eventDispatcher = $dispatcher;
@@ -220,7 +220,7 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
             $this->eventDispatcher->dispatchEvent($evt, 'sendPerformed');
         }
 
-        $message->generateId(); //Make sure a new Message ID is used
+        $message->generateId(); // Make sure a new Message ID is used
 
         return $sent;
     }
@@ -256,9 +256,6 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
         $this->started = false;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function ping()
     {
         try {
@@ -365,7 +362,7 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
     {
         $this->executeCommand(
             sprintf("HELO %s\r\n", $this->domain), [250]
-            );
+        );
     }
 
     /** Send the MAIL FROM command */
@@ -374,7 +371,7 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
         $address = $this->addressEncoder->encodeString($address);
         $this->executeCommand(
             sprintf("MAIL FROM:<%s>\r\n", $address), [250], $failures, true
-            );
+        );
     }
 
     /** Send the RCPT TO command */
@@ -383,7 +380,7 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
         $address = $this->addressEncoder->encodeString($address);
         $this->executeCommand(
             sprintf("RCPT TO:<%s>\r\n", $address), [250, 251, 252], $failures, true, $address
-            );
+        );
     }
 
     /** Send the DATA command */
@@ -531,11 +528,11 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
 
     public function __sleep()
     {
-        throw new \BadMethodCallException('Cannot serialize '.__CLASS__);
+        throw new BadMethodCallException('Cannot serialize '.__CLASS__);
     }
 
     public function __wakeup()
     {
-        throw new \BadMethodCallException('Cannot unserialize '.__CLASS__);
+        throw new BadMethodCallException('Cannot unserialize '.__CLASS__);
     }
 }

@@ -384,19 +384,19 @@ class Swift_Transport_EsmtpTransport_ExtensionSupportTest extends Swift_Transpor
              ->andReturn('AUTH');
         $ext1->shouldReceive('onCommand')
              ->once()
-             ->with($smtp, "FOO\r\n", [250, 251], \Mockery::any(), \Mockery::any());
+             ->with($smtp, "FOO\r\n", [250, 251], Mockery::any(), Mockery::any());
         $ext2->shouldReceive('getHandledKeyword')
              ->zeroOrMoreTimes()
              ->andReturn('SIZE');
         $ext2->shouldReceive('onCommand')
              ->once()
-             ->with($smtp, "FOO\r\n", [250, 251], \Mockery::any(), \Mockery::any());
+             ->with($smtp, "FOO\r\n", [250, 251], Mockery::any(), Mockery::any());
         $ext3->shouldReceive('getHandledKeyword')
              ->zeroOrMoreTimes()
              ->andReturn('STARTTLS');
         $ext3->shouldReceive('onCommand')
              ->never()
-             ->with(\Mockery::any(), \Mockery::any(), \Mockery::any(), \Mockery::any(), \Mockery::any());
+             ->with(Mockery::any(), Mockery::any(), Mockery::any(), Mockery::any(), Mockery::any());
 
         $smtp->setExtensionHandlers([$ext1, $ext2, $ext3]);
         $smtp->start();
@@ -441,7 +441,7 @@ class Swift_Transport_EsmtpTransport_ExtensionSupportTest extends Swift_Transpor
              ->andReturn('AUTH');
         $ext1->shouldReceive('onCommand')
              ->once()
-             ->with($smtp, "FOO\r\n", [250, 251], \Mockery::any(), \Mockery::any())
+             ->with($smtp, "FOO\r\n", [250, 251], Mockery::any(), Mockery::any())
              ->andReturnUsing(function ($a, $b, $c, $d, &$e) {
                  $e = true;
 
@@ -452,14 +452,14 @@ class Swift_Transport_EsmtpTransport_ExtensionSupportTest extends Swift_Transpor
              ->andReturn('SIZE');
         $ext2->shouldReceive('onCommand')
              ->never()
-             ->with(\Mockery::any(), \Mockery::any(), \Mockery::any(), \Mockery::any());
+             ->with(Mockery::any(), Mockery::any(), Mockery::any(), Mockery::any());
 
         $ext3->shouldReceive('getHandledKeyword')
              ->zeroOrMoreTimes()
              ->andReturn('STARTTLS');
         $ext3->shouldReceive('onCommand')
              ->never()
-             ->with(\Mockery::any(), \Mockery::any(), \Mockery::any(), \Mockery::any());
+             ->with(Mockery::any(), Mockery::any(), Mockery::any(), Mockery::any());
 
         $smtp->setExtensionHandlers([$ext1, $ext2, $ext3]);
         $smtp->start();

@@ -1,6 +1,6 @@
 <?php
 
-abstract class Swift_Transport_StreamBuffer_AbstractStreamBufferAcceptanceTest extends \PHPUnit\Framework\TestCase
+abstract class Swift_Transport_StreamBuffer_AbstractStreamBufferAcceptanceTest extends PHPUnit\Framework\TestCase
 {
     protected $buffer;
 
@@ -12,7 +12,7 @@ abstract class Swift_Transport_StreamBuffer_AbstractStreamBufferAcceptanceTest e
             $this->markTestSkipped(
                 'Will fail on travis-ci if not skipped due to travis blocking '.
                 'socket mailing tcp connections.'
-             );
+            );
         }
 
         $this->buffer = new Swift_Transport_StreamBuffer(

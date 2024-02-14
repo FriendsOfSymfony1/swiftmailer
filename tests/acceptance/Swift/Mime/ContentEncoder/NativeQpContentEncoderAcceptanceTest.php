@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Mime_ContentEncoder_NativeQpContentEncoderAcceptanceTest extends \PHPUnit\Framework\TestCase
+class Swift_Mime_ContentEncoder_NativeQpContentEncoderAcceptanceTest extends PHPUnit\Framework\TestCase
 {
     protected $samplesDir;
 
@@ -66,7 +66,7 @@ class Swift_Mime_ContentEncoder_NativeQpContentEncoderAcceptanceTest extends \PH
 
     public function testCharsetChangeNotImplemented()
     {
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(RuntimeException::class);
 
         $this->encoder->charsetChanged('utf-8');
         $this->encoder->charsetChanged('charset');
@@ -82,6 +82,6 @@ class Swift_Mime_ContentEncoder_NativeQpContentEncoderAcceptanceTest extends \PH
     {
         return Swift_DependencyContainer::getInstance()
             ->lookup('mime.nativeqpcontentencoder')
-            ;
+        ;
     }
 }

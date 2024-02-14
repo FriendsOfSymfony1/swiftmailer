@@ -111,7 +111,7 @@ abstract class Swift_Transport_AbstractSmtpEventSupportTest extends Swift_Transp
             ->andReturn("500 Not now\r\n");
         $dispatcher->shouldReceive('createSendEvent')
                    ->zeroOrMoreTimes()
-                   ->with($smtp, \Mockery::any())
+                   ->with($smtp, Mockery::any())
                    ->andReturn($evt);
         $dispatcher->shouldReceive('dispatchEvent')
                    ->once()
@@ -162,7 +162,7 @@ abstract class Swift_Transport_AbstractSmtpEventSupportTest extends Swift_Transp
             ->andReturn("500 Not now\r\n");
         $dispatcher->shouldReceive('createSendEvent')
                    ->zeroOrMoreTimes()
-                   ->with($smtp, \Mockery::any())
+                   ->with($smtp, Mockery::any())
                    ->andReturn($evt);
         $dispatcher->shouldReceive('dispatchEvent')
                    ->once()
@@ -216,7 +216,7 @@ abstract class Swift_Transport_AbstractSmtpEventSupportTest extends Swift_Transp
             ->andReturn("500 Not now\r\n");
         $dispatcher->shouldReceive('createSendEvent')
                    ->zeroOrMoreTimes()
-                   ->with($smtp, \Mockery::any())
+                   ->with($smtp, Mockery::any())
                    ->andReturn($evt);
         $dispatcher->shouldReceive('dispatchEvent')
                    ->once()
@@ -254,7 +254,7 @@ abstract class Swift_Transport_AbstractSmtpEventSupportTest extends Swift_Transp
                 ]);
         $dispatcher->shouldReceive('createSendEvent')
                    ->zeroOrMoreTimes()
-                   ->with($smtp, \Mockery::any())
+                   ->with($smtp, Mockery::any())
                    ->andReturn($evt);
         $dispatcher->shouldReceive('dispatchEvent')
                    ->once()
@@ -289,7 +289,7 @@ abstract class Swift_Transport_AbstractSmtpEventSupportTest extends Swift_Transp
                 ->andReturn(['mark@swiftmailer.org' => 'Mark']);
         $dispatcher->shouldReceive('createSendEvent')
                    ->zeroOrMoreTimes()
-                   ->with($smtp, \Mockery::any())
+                   ->with($smtp, Mockery::any())
                    ->andReturn($evt);
         $dispatcher->shouldReceive('dispatchEvent')
                    ->once()
@@ -469,7 +469,7 @@ abstract class Swift_Transport_AbstractSmtpEventSupportTest extends Swift_Transp
 
         $dispatcher->shouldReceive('createResponseEvent')
                    ->atLeast()->once()
-                   ->with($smtp, \Mockery::any(), \Mockery::any())
+                   ->with($smtp, Mockery::any(), Mockery::any())
                    ->andReturn($evt);
         $dispatcher->shouldReceive('dispatchEvent')
                    ->atLeast()->once()
@@ -488,7 +488,7 @@ abstract class Swift_Transport_AbstractSmtpEventSupportTest extends Swift_Transp
 
         $dispatcher->shouldReceive('createCommandEvent')
                    ->once()
-                   ->with($smtp, \Mockery::any(), \Mockery::any())
+                   ->with($smtp, Mockery::any(), Mockery::any())
                    ->andReturn($evt);
         $dispatcher->shouldReceive('dispatchEvent')
                    ->once()
@@ -510,7 +510,7 @@ abstract class Swift_Transport_AbstractSmtpEventSupportTest extends Swift_Transp
             ->andReturn("503 I'm sleepy, go away!\r\n");
         $dispatcher->shouldReceive('createTransportExceptionEvent')
                    ->zeroOrMoreTimes()
-                   ->with($smtp, \Mockery::any())
+                   ->with($smtp, Mockery::any())
                    ->andReturn($evt);
         $dispatcher->shouldReceive('dispatchEvent')
                    ->once()
@@ -538,7 +538,7 @@ abstract class Swift_Transport_AbstractSmtpEventSupportTest extends Swift_Transp
             ->andReturn("503 I'm sleepy, go away!\r\n");
         $dispatcher->shouldReceive('createTransportExceptionEvent')
                    ->twice()
-                   ->with($smtp, \Mockery::any())
+                   ->with($smtp, Mockery::any())
                    ->andReturn($evt);
         $dispatcher->shouldReceive('dispatchEvent')
                    ->twice()

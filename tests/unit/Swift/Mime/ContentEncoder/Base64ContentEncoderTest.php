@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends \SwiftMailerTestCase
+class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends SwiftMailerTestCase
 {
     private $encoder;
 
@@ -90,7 +90,7 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends \SwiftMailerTes
             $this->encoder->encodeByteStream($os, $is);
             $this->assertMatchesRegularExpression('~^[a-zA-Z0-9/\+]{2}==$~', $collection->content,
                 '%s: A single byte should have 2 bytes of padding'
-                );
+            );
         }
 
         for ($i = 0; $i < 30; ++$i) {
@@ -111,7 +111,7 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends \SwiftMailerTes
             $this->encoder->encodeByteStream($os, $is);
             $this->assertMatchesRegularExpression('~^[a-zA-Z0-9/\+]{3}=$~', $collection->content,
                 '%s: Two bytes should have 1 byte of padding'
-                );
+            );
         }
 
         for ($i = 0; $i < 30; ++$i) {
@@ -132,7 +132,7 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends \SwiftMailerTes
             $this->encoder->encodeByteStream($os, $is);
             $this->assertMatchesRegularExpression('~^[a-zA-Z0-9/\+]{4}$~', $collection->content,
                 '%s: Three bytes should have no padding'
-                );
+            );
         }
     }
 
@@ -153,25 +153,25 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends \SwiftMailerTes
            ->andReturnUsing($collection);
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('abcdefghijkl'); //12
+           ->andReturn('abcdefghijkl'); // 12
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('mnopqrstuvwx'); //24
+           ->andReturn('mnopqrstuvwx'); // 24
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('yzabc1234567'); //36
+           ->andReturn('yzabc1234567'); // 36
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('890ABCDEFGHI'); //48
+           ->andReturn('890ABCDEFGHI'); // 48
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('JKLMNOPQRSTU'); //60
+           ->andReturn('JKLMNOPQRSTU'); // 60
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('VWXYZ1234567'); //72
+           ->andReturn('VWXYZ1234567'); // 72
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('abcdefghijkl'); //84
+           ->andReturn('abcdefghijkl'); // 84
         $os->shouldReceive('read')
            ->zeroOrMoreTimes()
            ->andReturn(false);
@@ -181,7 +181,7 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends \SwiftMailerTes
             "YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXphYmMxMjM0NTY3ODkwQUJDREVGR0hJSktMTU5PUFFS\r\n".
             'U1RVVldYWVoxMjM0NTY3YWJjZGVmZ2hpamts',
             $collection->content
-            );
+        );
     }
 
     public function testMaximumLineLengthCanBeDifferent()
@@ -195,25 +195,25 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends \SwiftMailerTes
            ->andReturnUsing($collection);
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('abcdefghijkl'); //12
+           ->andReturn('abcdefghijkl'); // 12
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('mnopqrstuvwx'); //24
+           ->andReturn('mnopqrstuvwx'); // 24
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('yzabc1234567'); //36
+           ->andReturn('yzabc1234567'); // 36
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('890ABCDEFGHI'); //48
+           ->andReturn('890ABCDEFGHI'); // 48
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('JKLMNOPQRSTU'); //60
+           ->andReturn('JKLMNOPQRSTU'); // 60
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('VWXYZ1234567'); //72
+           ->andReturn('VWXYZ1234567'); // 72
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('abcdefghijkl'); //84
+           ->andReturn('abcdefghijkl'); // 84
         $os->shouldReceive('read')
            ->zeroOrMoreTimes()
            ->andReturn(false);
@@ -224,7 +224,7 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends \SwiftMailerTes
             "kwQUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVoxMjM0NTY3YWJj\r\n".
             'ZGVmZ2hpamts',
             $collection->content
-            );
+        );
     }
 
     public function testMaximumLineLengthIsNeverMoreThan76Chars()
@@ -238,25 +238,25 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends \SwiftMailerTes
            ->andReturnUsing($collection);
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('abcdefghijkl'); //12
+           ->andReturn('abcdefghijkl'); // 12
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('mnopqrstuvwx'); //24
+           ->andReturn('mnopqrstuvwx'); // 24
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('yzabc1234567'); //36
+           ->andReturn('yzabc1234567'); // 36
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('890ABCDEFGHI'); //48
+           ->andReturn('890ABCDEFGHI'); // 48
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('JKLMNOPQRSTU'); //60
+           ->andReturn('JKLMNOPQRSTU'); // 60
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('VWXYZ1234567'); //72
+           ->andReturn('VWXYZ1234567'); // 72
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('abcdefghijkl'); //84
+           ->andReturn('abcdefghijkl'); // 84
         $os->shouldReceive('read')
            ->zeroOrMoreTimes()
            ->andReturn(false);
@@ -266,7 +266,7 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends \SwiftMailerTes
             "YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXphYmMxMjM0NTY3ODkwQUJDREVGR0hJSktMTU5PUFFS\r\n".
             'U1RVVldYWVoxMjM0NTY3YWJjZGVmZ2hpamts',
             $collection->content
-            );
+        );
     }
 
     public function testFirstLineLengthCanBeDifferent()
@@ -280,25 +280,25 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends \SwiftMailerTes
            ->andReturnUsing($collection);
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('abcdefghijkl'); //12
+           ->andReturn('abcdefghijkl'); // 12
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('mnopqrstuvwx'); //24
+           ->andReturn('mnopqrstuvwx'); // 24
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('yzabc1234567'); //36
+           ->andReturn('yzabc1234567'); // 36
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('890ABCDEFGHI'); //48
+           ->andReturn('890ABCDEFGHI'); // 48
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('JKLMNOPQRSTU'); //60
+           ->andReturn('JKLMNOPQRSTU'); // 60
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('VWXYZ1234567'); //72
+           ->andReturn('VWXYZ1234567'); // 72
         $os->shouldReceive('read')
            ->once()
-           ->andReturn('abcdefghijkl'); //84
+           ->andReturn('abcdefghijkl'); // 84
         $os->shouldReceive('read')
            ->zeroOrMoreTimes()
            ->andReturn(false);
@@ -308,7 +308,7 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoderTest extends \SwiftMailerTes
             "YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXphYmMxMjM0NTY3ODkwQUJDR\r\n".
             'EVGR0hJSktMTU5PUFFSU1RVVldYWVoxMjM0NTY3YWJjZGVmZ2hpamts',
             $collection->content
-            );
+        );
     }
 
     private function createOutputByteStream($stub = false)

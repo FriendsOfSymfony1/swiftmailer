@@ -7,7 +7,7 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
  *
  * @author Rouven Weßling
  */
-class SwiftMailerTestCase extends \PHPUnit\Framework\TestCase
+class SwiftMailerTestCase extends PHPUnit\Framework\TestCase
 {
     use MockeryPHPUnitIntegration;
 
@@ -17,7 +17,7 @@ class SwiftMailerTestCase extends \PHPUnit\Framework\TestCase
             throw PHPUnit\Util\InvalidArgumentHelper::factory(1, 'string');
         }
 
-        return new \PHPUnit\Framework\Constraint\RegularExpression($pattern);
+        return new PHPUnit\Framework\Constraint\RegularExpression($pattern);
     }
 
     public function assertIdenticalBinary($expected, $actual, $message = '')
@@ -28,6 +28,6 @@ class SwiftMailerTestCase extends \PHPUnit\Framework\TestCase
 
     protected function getMockery($class)
     {
-        return \Mockery::mock($class);
+        return Mockery::mock($class);
     }
 }

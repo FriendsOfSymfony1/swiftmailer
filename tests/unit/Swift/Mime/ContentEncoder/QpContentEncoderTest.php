@@ -1,12 +1,12 @@
 <?php
 
-class Swift_Mime_ContentEncoder_QpContentEncoderTest extends \SwiftMailerTestCase
+class Swift_Mime_ContentEncoder_QpContentEncoderTest extends SwiftMailerTestCase
 {
     public function testNameIsQuotedPrintable()
     {
         $encoder = new Swift_Mime_ContentEncoder_QpContentEncoder(
             $this->createCharacterStream(true)
-            );
+        );
         $this->assertEquals('quoted-printable', $encoder->getName());
     }
 
@@ -91,10 +91,10 @@ class Swift_Mime_ContentEncoder_QpContentEncoderTest extends \SwiftMailerTestCas
                     intermediate transport agents.
                     */
 
-        $HT = \chr(0x09); //9
-        $SPACE = \chr(0x20); //32
+        $HT = \chr(0x09); // 9
+        $SPACE = \chr(0x20); // 32
 
-        //HT
+        // HT
         $os = $this->createOutputByteStream(true);
         $charStream = $this->createCharacterStream();
         $is = $this->createInputByteStream();
@@ -135,7 +135,7 @@ class Swift_Mime_ContentEncoder_QpContentEncoderTest extends \SwiftMailerTestCas
 
         $this->assertEquals("a\t=09\r\nb", $collection->content);
 
-        //SPACE
+        // SPACE
         $os = $this->createOutputByteStream(true);
         $charStream = $this->createCharacterStream();
         $is = $this->createInputByteStream();
@@ -458,7 +458,7 @@ class Swift_Mime_ContentEncoder_QpContentEncoderTest extends \SwiftMailerTestCas
         $this->assertEquals(
             str_repeat('a', 53)."=\r\n".str_repeat('a', 75)."=\r\n".str_repeat('a', 13),
             $collection->content
-            );
+        );
     }
 
     public function testObserverInterfaceCanChangeCharset()
@@ -488,7 +488,7 @@ class Swift_Mime_ContentEncoder_QpContentEncoderTest extends \SwiftMailerTestCas
 
         $this->assertEquals(
             $input, $os->read(PHP_INT_MAX)
-            );
+        );
     }
 
     private function createCharacterStream($stub = false)

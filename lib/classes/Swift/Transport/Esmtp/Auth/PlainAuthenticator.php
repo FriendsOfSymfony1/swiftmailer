@@ -25,9 +25,6 @@ class Swift_Transport_Esmtp_Auth_PlainAuthenticator implements Swift_Transport_E
         return 'PLAIN';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function authenticate(Swift_Transport_SmtpAgent $agent, $username, $password)
     {
         try {

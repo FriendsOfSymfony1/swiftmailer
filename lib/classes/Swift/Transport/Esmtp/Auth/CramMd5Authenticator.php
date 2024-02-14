@@ -25,9 +25,6 @@ class Swift_Transport_Esmtp_Auth_CramMd5Authenticator implements Swift_Transport
         return 'CRAM-MD5';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function authenticate(Swift_Transport_SmtpAgent $agent, $username, $password)
     {
         try {

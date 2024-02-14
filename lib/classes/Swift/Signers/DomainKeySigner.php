@@ -101,7 +101,7 @@ class Swift_Signers_DomainKeySigner implements Swift_Signers_HeaderSigner
 
     private $bodyCanonSpace = false;
 
-    private $bodyCanonLastChar = null;
+    private $bodyCanonLastChar;
 
     private $bodyCanonLine = '';
 
@@ -151,10 +151,9 @@ class Swift_Signers_DomainKeySigner implements Swift_Signers_HeaderSigner
      * @param string $bytes
      *
      * @return int
+     * @return $this
      *
      * @throws Swift_IoException
-     *
-     * @return $this
      */
     public function write($bytes)
     {
@@ -170,9 +169,9 @@ class Swift_Signers_DomainKeySigner implements Swift_Signers_HeaderSigner
      * For any bytes that are currently buffered inside the stream, force them
      * off the buffer.
      *
-     * @throws Swift_IoException
-     *
      * @return $this
+     *
+     * @throws Swift_IoException
      */
     public function commit()
     {
@@ -223,9 +222,9 @@ class Swift_Signers_DomainKeySigner implements Swift_Signers_HeaderSigner
      * Flush the contents of the stream (empty it) and set the internal pointer
      * to the beginning.
      *
-     * @throws Swift_IoException
-     *
      * @return $this
+     *
+     * @throws Swift_IoException
      */
     public function flushBuffers()
     {
@@ -442,7 +441,7 @@ class Swift_Signers_DomainKeySigner implements Swift_Signers_HeaderSigner
                     break;
                 case ' ':
                 case "\t":
-                case "\x09": //HTAB
+                case "\x09": // HTAB
                     if ($nofws) {
                         $this->bodyCanonSpace = true;
                         break;
@@ -485,9 +484,9 @@ class Swift_Signers_DomainKeySigner implements Swift_Signers_HeaderSigner
     }
 
     /**
-     * @throws Swift_SwiftException
-     *
      * @return string
+     *
+     * @throws Swift_SwiftException
      */
     private function getEncryptedHash()
     {

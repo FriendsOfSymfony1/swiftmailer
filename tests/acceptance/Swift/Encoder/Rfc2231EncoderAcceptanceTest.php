@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Encoder_Rfc2231EncoderAcceptanceTest extends \PHPUnit\Framework\TestCase
+class Swift_Encoder_Rfc2231EncoderAcceptanceTest extends PHPUnit\Framework\TestCase
 {
     private $samplesDir;
     private $factory;
@@ -40,7 +40,7 @@ class Swift_Encoder_Rfc2231EncoderAcceptanceTest extends \PHPUnit\Framework\Test
                         urldecode(implode('', explode("\r\n", $encodedText))), $text,
                         '%s: Encoded string should decode back to original string for sample '.
                         $sampleDir.'/'.$sampleFile
-                        );
+                    );
                 }
                 closedir($fileFp);
             }

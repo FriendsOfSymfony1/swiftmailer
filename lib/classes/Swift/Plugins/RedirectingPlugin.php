@@ -17,8 +17,6 @@ class Swift_Plugins_RedirectingPlugin implements Swift_Events_SendListener
 {
     /**
      * The recipient who will receive all messages.
-     *
-     * @var mixed
      */
     private $recipient;
 
@@ -31,8 +29,6 @@ class Swift_Plugins_RedirectingPlugin implements Swift_Events_SendListener
 
     /**
      * Create a new RedirectingPlugin.
-     *
-     * @param mixed $recipient
      */
     public function __construct($recipient, array $whitelist = [])
     {
@@ -42,8 +38,6 @@ class Swift_Plugins_RedirectingPlugin implements Swift_Events_SendListener
 
     /**
      * Set the recipient of all messages.
-     *
-     * @param mixed $recipient
      */
     public function setRecipient($recipient)
     {
@@ -52,8 +46,6 @@ class Swift_Plugins_RedirectingPlugin implements Swift_Events_SendListener
 
     /**
      * Get the recipient of all messages.
-     *
-     * @return mixed
      */
     public function getRecipient()
     {

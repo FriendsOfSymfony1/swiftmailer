@@ -156,13 +156,13 @@ class Swift_Transport_EsmtpTransportTest extends Swift_Transport_AbstractSmtpEve
         } catch (Exception $e) {
             $this->fail(
                 'Starting Esmtp should fallback to HELO if needed and accept 250 response'
-                );
+            );
         }
     }
 
     public function testInvalidHeloResponseCausesException()
     {
-        //Overridden to first try EHLO
+        // Overridden to first try EHLO
         $buf = $this->getBuffer();
         $smtp = $this->getTransport($buf);
 
@@ -236,7 +236,7 @@ class Swift_Transport_EsmtpTransportTest extends Swift_Transport_AbstractSmtpEve
 
     public function testDomainNameIsPlacedInHelo()
     {
-        //Overridden to include ESMTP
+        // Overridden to include ESMTP
         /* -- RFC 2821, 4.1.4.
 
        The SMTP client MUST, if possible, ensure that the domain parameter
@@ -645,7 +645,7 @@ class Swift_Transport_EsmtpTransportTest extends Swift_Transport_AbstractSmtpEve
             ->setEncryption('tls')
             ->setTimeout(30)
             ->setPipelining(false)
-            ;
+        ;
         $this->assertEquals($ref, $smtp);
     }
 }

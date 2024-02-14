@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Bug71Test extends \PHPUnit\Framework\TestCase
+class Swift_Bug71Test extends PHPUnit\Framework\TestCase
 {
     private $message;
 

@@ -5,7 +5,7 @@
  *
  * @author Chris Corbyn
  */
-class IdenticalBinaryConstraint extends \PHPUnit\Framework\Constraint\Constraint
+class IdenticalBinaryConstraint extends PHPUnit\Framework\Constraint\Constraint
 {
     protected $value;
 

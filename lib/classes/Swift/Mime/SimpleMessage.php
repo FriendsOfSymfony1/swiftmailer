@@ -15,11 +15,11 @@
  */
 class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart
 {
-    const PRIORITY_HIGHEST = 1;
-    const PRIORITY_HIGH = 2;
-    const PRIORITY_NORMAL = 3;
-    const PRIORITY_LOW = 4;
-    const PRIORITY_LOWEST = 5;
+    public const PRIORITY_HIGHEST = 1;
+    public const PRIORITY_HIGH = 2;
+    public const PRIORITY_NORMAL = 3;
+    public const PRIORITY_LOW = 4;
+    public const PRIORITY_LOWEST = 5;
 
     /**
      * Create a new SimpleMessage with $headers, $encoder and $cache.
@@ -219,8 +219,6 @@ class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart
 
     /**
      * Get the from address of this message.
-     *
-     * @return mixed
      */
     public function getFrom()
     {
@@ -253,8 +251,7 @@ class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart
      * If $name is passed and the first parameter is a string, this name will be
      * associated with the address.
      *
-     * @param mixed  $addresses
-     * @param string $name      optional
+     * @param string $name optional
      *
      * @return $this
      */
@@ -308,8 +305,7 @@ class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart
      * If $name is passed and the first parameter is a string, this name will be
      * associated with the address.
      *
-     * @param mixed  $addresses
-     * @param string $name      optional
+     * @param string $name optional
      *
      * @return $this
      */
@@ -360,8 +356,7 @@ class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart
      * If $name is passed and the first parameter is a string, this name will be
      * associated with the address.
      *
-     * @param mixed  $addresses
-     * @param string $name      optional
+     * @param string $name optional
      *
      * @return $this
      */
@@ -412,8 +407,7 @@ class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart
      * If $name is passed and the first parameter is a string, this name will be
      * associated with the address.
      *
-     * @param mixed  $addresses
-     * @param string $name      optional
+     * @param string $name optional
      *
      * @return $this
      */
@@ -485,7 +479,7 @@ class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart
     {
         list($priority) = sscanf($this->getHeaderFieldModel('X-Priority'),
             '%[1-5]'
-            );
+        );
 
         return $priority ?? 3;
     }
@@ -616,7 +610,7 @@ class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart
     {
         $part = new parent($this->getHeaders()->newInstance(), $this->getEncoder(),
             $this->getCache(), $this->getIdGenerator(), $this->userCharset
-            );
+        );
         $part->setContentType($this->userContentType);
         $part->setBody($this->getBody());
         $part->setFormat($this->userFormat);

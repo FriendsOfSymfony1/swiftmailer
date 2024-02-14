@@ -26,7 +26,7 @@ class Swift_Signers_SMimeSigner implements Swift_Signers_BodySigner
     protected $signOptions;
     protected $encryptOptions;
     protected $encryptCipher;
-    protected $extraCerts = null;
+    protected $extraCerts;
     protected $wrapFullMessage = false;
 
     /**
@@ -266,14 +266,14 @@ class Swift_Signers_SMimeSigner implements Swift_Signers_BodySigner
 
         // Sign the message using openssl
         if (!openssl_pkcs7_sign(
-                $messageStream->getPath(),
-                $signedMessageStream->getPath(),
-                $this->signCertificate,
-                $this->signPrivateKey,
-                [],
-                $this->signOptions,
-                $this->extraCerts
-            )
+            $messageStream->getPath(),
+            $signedMessageStream->getPath(),
+            $this->signCertificate,
+            $this->signPrivateKey,
+            [],
+            $this->signOptions,
+            $this->extraCerts
+        )
         ) {
             throw new Swift_IoException(sprintf('Failed to sign S/Mime message. Error: "%s".', openssl_error_string()));
         }
@@ -324,13 +324,13 @@ class Swift_Signers_SMimeSigner implements Swift_Signers_BodySigner
 
         // Encrypt the message
         if (!openssl_pkcs7_encrypt(
-                $messageStream->getPath(),
-                $encryptedMessageStream->getPath(),
-                $this->encryptCert,
-                [],
-                0,
-                $this->encryptCipher
-            )
+            $messageStream->getPath(),
+            $encryptedMessageStream->getPath(),
+            $this->encryptCert,
+            [],
+            0,
+            $this->encryptCipher
+        )
         ) {
             throw new Swift_IoException(sprintf('Failed to encrypt S/Mime message. Error: "%s".', openssl_error_string()));
         }

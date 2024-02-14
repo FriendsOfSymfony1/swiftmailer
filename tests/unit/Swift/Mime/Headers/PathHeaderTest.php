@@ -2,7 +2,7 @@
 
 use Egulias\EmailValidator\EmailValidator;
 
-class Swift_Mime_Headers_PathHeaderTest extends \PHPUnit\Framework\TestCase
+class Swift_Mime_Headers_PathHeaderTest extends PHPUnit\Framework\TestCase
 {
     public function testTypeIsPathHeader()
     {
@@ -19,7 +19,7 @@ class Swift_Mime_Headers_PathHeaderTest extends \PHPUnit\Framework\TestCase
 
     public function testAddressMustComplyWithRfc2822()
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception::class);
 
         $header = $this->getHeader('Return-Path');
         $header->setAddress('chr is@swiftmailer.org');
@@ -49,7 +49,7 @@ class Swift_Mime_Headers_PathHeaderTest extends \PHPUnit\Framework\TestCase
 
     public function testAddressMustBeEncodable()
     {
-        $this->expectException(\Swift_AddressEncoderException::class);
+        $this->expectException(Swift_AddressEncoderException::class);
 
         $header = $this->getHeader('Return-Path');
         $header->setAddress('chrïs@swiftmailer.org');
@@ -83,7 +83,7 @@ class Swift_Mime_Headers_PathHeaderTest extends \PHPUnit\Framework\TestCase
         $header->setAddress('chris@swiftmailer.org');
         $this->assertEquals('Return-Path: <chris@swiftmailer.org>'."\r\n",
             $header->toString()
-            );
+        );
     }
 
     private function getHeader($name)

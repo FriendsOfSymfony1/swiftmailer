@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Events_CommandEventTest extends \PHPUnit\Framework\TestCase
+class Swift_Events_CommandEventTest extends PHPUnit\Framework\TestCase
 {
     public function testCommandCanBeFetchedByGetter()
     {

@@ -24,7 +24,7 @@ class Swift_Transport_SpoolTransport implements Swift_Transport
     /**
      * Constructor.
      */
-    public function __construct(Swift_Events_EventDispatcher $eventDispatcher, Swift_Spool $spool = null)
+    public function __construct(Swift_Events_EventDispatcher $eventDispatcher, ?Swift_Spool $spool = null)
     {
         $this->eventDispatcher = $eventDispatcher;
         $this->spool = $spool;
@@ -76,9 +76,6 @@ class Swift_Transport_SpoolTransport implements Swift_Transport
     {
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function ping()
     {
         return true;

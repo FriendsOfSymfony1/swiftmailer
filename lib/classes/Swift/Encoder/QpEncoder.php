@@ -106,7 +106,7 @@ class Swift_Encoder_QpEncoder implements Swift_Encoder
      * @param Swift_CharacterStream $charStream to use for reading characters
      * @param Swift_StreamFilter    $filter     if input should be canonicalized
      */
-    public function __construct(Swift_CharacterStream $charStream, Swift_StreamFilter $filter = null)
+    public function __construct(Swift_CharacterStream $charStream, ?Swift_StreamFilter $filter = null)
     {
         $this->charStream = $charStream;
         if (!isset(self::$safeMapShare[$this->getSafeMapShareId()])) {
@@ -280,7 +280,7 @@ class Swift_Encoder_QpEncoder implements Swift_Encoder
     {
         $string = str_replace(["\t=0D=0A", ' =0D=0A', '=0D=0A'],
             ["=09\r\n", "=20\r\n", "\r\n"], $string
-            );
+        );
         switch ($end = \ord(substr($string, -1))) {
             case 0x09:
             case 0x20:

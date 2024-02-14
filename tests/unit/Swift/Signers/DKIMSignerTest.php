@@ -2,7 +2,7 @@
 
 use Egulias\EmailValidator\EmailValidator;
 
-class Swift_Signers_DKIMSignerTest extends \SwiftMailerTestCase
+class Swift_Signers_DKIMSignerTest extends SwiftMailerTestCase
 {
     public function testBasicSigningHeaderManipulation()
     {
@@ -208,7 +208,7 @@ class Swift_Signers_DKIMSignerTest extends \SwiftMailerTestCase
                 ->andReturn([$headerFactory->createTextHeader('Subject', 'Foo Bar Text Message')]);
         $headers->shouldReceive('addTextHeader')
                 ->zeroOrMoreTimes()
-                ->with('DKIM-Signature', \Mockery::any())
+                ->with('DKIM-Signature', Mockery::any())
                 ->andReturn(true);
         $headers->shouldReceive('getAll')
                 ->zeroOrMoreTimes()

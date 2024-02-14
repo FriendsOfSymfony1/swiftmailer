@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Plugins_ReporterPluginTest extends \SwiftMailerTestCase
+class Swift_Plugins_ReporterPluginTest extends SwiftMailerTestCase
 {
     public function testReportingPasses()
     {

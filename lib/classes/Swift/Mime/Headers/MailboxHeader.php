@@ -39,7 +39,7 @@ class Swift_Mime_Headers_MailboxHeader extends Swift_Mime_Headers_AbstractHeader
      *
      * @param string $name of Header
      */
-    public function __construct($name, Swift_Mime_HeaderEncoder $encoder, EmailValidator $emailValidator, Swift_AddressEncoder $addressEncoder = null)
+    public function __construct($name, Swift_Mime_HeaderEncoder $encoder, EmailValidator $emailValidator, ?Swift_AddressEncoder $addressEncoder = null)
     {
         $this->setFieldName($name);
         $this->setEncoder($encoder);
@@ -65,8 +65,6 @@ class Swift_Mime_Headers_MailboxHeader extends Swift_Mime_Headers_AbstractHeader
      *
      * This method takes a string, or an array of addresses.
      *
-     * @param mixed $model
-     *
      * @throws Swift_RfcComplianceException
      */
     public function setFieldBodyModel($model)
@@ -79,9 +77,9 @@ class Swift_Mime_Headers_MailboxHeader extends Swift_Mime_Headers_AbstractHeader
      *
      * This method returns an associative array like {@link getNameAddresses()}
      *
-     * @throws Swift_RfcComplianceException
-     *
      * @return array
+     *
+     * @throws Swift_RfcComplianceException
      */
     public function getFieldBodyModel()
     {
@@ -115,7 +113,7 @@ class Swift_Mime_Headers_MailboxHeader extends Swift_Mime_Headers_AbstractHeader
     public function setNameAddresses($mailboxes)
     {
         $this->mailboxes = $this->normalizeMailboxes((array) $mailboxes);
-        $this->setCachedValue(null); //Clear any cached value
+        $this->setCachedValue(null); // Clear any cached value
     }
 
     /**
@@ -139,9 +137,9 @@ class Swift_Mime_Headers_MailboxHeader extends Swift_Mime_Headers_AbstractHeader
      * @see getNameAddresses()
      * @see toString()
      *
-     * @throws Swift_RfcComplianceException
-     *
      * @return string[]
+     *
+     * @throws Swift_RfcComplianceException
      */
     public function getNameAddressStrings()
     {
@@ -235,9 +233,9 @@ class Swift_Mime_Headers_MailboxHeader extends Swift_Mime_Headers_AbstractHeader
      *
      * @see toString()
      *
-     * @throws Swift_RfcComplianceException
-     *
      * @return string
+     *
+     * @throws Swift_RfcComplianceException
      */
     public function getFieldBody()
     {
@@ -262,7 +260,7 @@ class Swift_Mime_Headers_MailboxHeader extends Swift_Mime_Headers_AbstractHeader
 
         foreach ($mailboxes as $key => $value) {
             if (\is_string($key)) {
-                //key is email addr
+                // key is email addr
                 $address = $key;
                 $name = $value;
             } else {
@@ -294,9 +292,9 @@ class Swift_Mime_Headers_MailboxHeader extends Swift_Mime_Headers_AbstractHeader
      *
      * @param string[] $mailboxes
      *
-     * @throws Swift_RfcComplianceException
-     *
      * @return string
+     *
+     * @throws Swift_RfcComplianceException
      */
     protected function createMailboxListString(array $mailboxes)
     {

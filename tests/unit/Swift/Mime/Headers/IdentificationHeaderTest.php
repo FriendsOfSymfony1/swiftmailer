@@ -2,7 +2,7 @@
 
 use Egulias\EmailValidator\EmailValidator;
 
-class Swift_Mime_Headers_IdentificationHeaderTest extends \PHPUnit\Framework\TestCase
+class Swift_Mime_Headers_IdentificationHeaderTest extends PHPUnit\Framework\TestCase
 {
     public function testTypeIsIdHeader()
     {
@@ -101,7 +101,7 @@ class Swift_Mime_Headers_IdentificationHeaderTest extends \PHPUnit\Framework\Tes
 
     public function testInvalidIdLeftThrowsException()
     {
-        $this->expectException(\Swift_RfcComplianceException::class);
+        $this->expectException(Swift_RfcComplianceException::class);
         $this->expectExceptionMessage('Invalid ID given <a b c@d>');
 
         $header = $this->getHeader('References');
@@ -142,7 +142,7 @@ class Swift_Mime_Headers_IdentificationHeaderTest extends \PHPUnit\Framework\Tes
 
     public function testInvalidIdRightThrowsException()
     {
-        $this->expectException(\Swift_RfcComplianceException::class);
+        $this->expectException(Swift_RfcComplianceException::class);
         $this->expectExceptionMessage('Invalid ID given <a@b c d>');
 
         $header = $this->getHeader('References');
@@ -151,7 +151,7 @@ class Swift_Mime_Headers_IdentificationHeaderTest extends \PHPUnit\Framework\Tes
 
     public function testMissingAtSignThrowsException()
     {
-        $this->expectException(\Swift_RfcComplianceException::class);
+        $this->expectException(Swift_RfcComplianceException::class);
         $this->expectExceptionMessage('Invalid ID given <abc>');
 
         /* -- RFC 2822, 3.6.4.

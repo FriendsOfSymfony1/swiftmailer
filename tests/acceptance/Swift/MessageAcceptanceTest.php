@@ -42,7 +42,7 @@ class Swift_MessageAcceptanceTest extends Swift_Mime_SimpleMessageAcceptanceTest
             "\r\n\r\n".
             '--'.$boundary.'--'."\r\n",
             $message->toString()
-            );
+        );
     }
 
     protected function createMessage()

@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Mime_ContentEncoder_PlainContentEncoderTest extends \SwiftMailerTestCase
+class Swift_Mime_ContentEncoder_PlainContentEncoderTest extends SwiftMailerTestCase
 {
     public function testNameCanBeSpecifiedInConstructor()
     {
@@ -53,14 +53,14 @@ class Swift_Mime_ContentEncoder_PlainContentEncoderTest extends \SwiftMailerTest
         for ($i = 0; $i < 50; ++$i) {
             $chars[] = 'a';
         }
-        $input = implode(' ', $chars); //99 chars long
+        $input = implode(' ', $chars); // 99 chars long
 
         $this->assertEquals(
-            'a a a a a a a a a a a a a a a a a a a a a a a a a '."\r\n".//50 *
-            'a a a a a a a a a a a a a a a a a a a a a a a a a',            //99
+            'a a a a a a a a a a a a a a a a a a a a a a a a a '."\r\n".// 50 *
+            'a a a a a a a a a a a a a a a a a a a a a a a a a',            // 99
             $encoder->encodeString($input, 0, 50),
             '%s: Lines should be wrapped at 50 chars'
-            );
+        );
     }
 
     public function testLineLengthCanBeSpecifiedInByteStream()
@@ -89,7 +89,7 @@ class Swift_Mime_ContentEncoder_PlainContentEncoderTest extends \SwiftMailerTest
         $this->assertEquals(
             str_repeat('a ', 25)."\r\n".str_repeat('a ', 25),
             $collection->content
-            );
+        );
     }
 
     public function testencodeStringGeneratesCorrectCrlf()
@@ -97,19 +97,19 @@ class Swift_Mime_ContentEncoder_PlainContentEncoderTest extends \SwiftMailerTest
         $encoder = $this->getEncoder('7bit', true);
         $this->assertEquals("a\r\nb", $encoder->encodeString("a\rb"),
             '%s: Line endings should be standardized'
-            );
+        );
         $this->assertEquals("a\r\nb", $encoder->encodeString("a\nb"),
             '%s: Line endings should be standardized'
-            );
+        );
         $this->assertEquals("a\r\n\r\nb", $encoder->encodeString("a\n\rb"),
             '%s: Line endings should be standardized'
-            );
+        );
         $this->assertEquals("a\r\n\r\nb", $encoder->encodeString("a\r\rb"),
             '%s: Line endings should be standardized'
-            );
+        );
         $this->assertEquals("a\r\n\r\nb", $encoder->encodeString("a\n\nb"),
             '%s: Line endings should be standardized'
-            );
+        );
     }
 
     public function crlfProvider()

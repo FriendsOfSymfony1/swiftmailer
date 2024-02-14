@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Mime_ContentEncoder_QpContentEncoderAcceptanceTest extends \PHPUnit\Framework\TestCase
+class Swift_Mime_ContentEncoder_QpContentEncoderAcceptanceTest extends PHPUnit\Framework\TestCase
 {
     private $samplesDir;
     private $factory;
@@ -55,7 +55,7 @@ class Swift_Mime_ContentEncoder_QpContentEncoderAcceptanceTest extends \PHPUnit\
                         quoted_printable_decode($encoded), $text,
                         '%s: Encoded string should decode back to original string for sample '.
                         $sampleDir.'/'.$sampleFile
-                        );
+                    );
                 }
                 closedir($fileFp);
             }
@@ -100,7 +100,7 @@ class Swift_Mime_ContentEncoder_QpContentEncoderAcceptanceTest extends \PHPUnit\
                         str_replace("\r\n", "\n", quoted_printable_decode($encoded)), str_replace("\r\n", "\n", $text),
                         '%s: Encoded string should decode back to original string for sample '.
                         $sampleDir.'/'.$sampleFile
-                        );
+                    );
                 }
                 closedir($fileFp);
             }
@@ -155,6 +155,6 @@ class Swift_Mime_ContentEncoder_QpContentEncoderAcceptanceTest extends \PHPUnit\
     {
         return Swift_DependencyContainer::getInstance()
             ->lookup('mime.qpcontentencoder')
-            ;
+        ;
     }
 }

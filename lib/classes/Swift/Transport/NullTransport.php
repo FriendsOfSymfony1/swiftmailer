@@ -50,9 +50,6 @@ class Swift_Transport_NullTransport implements Swift_Transport
     {
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function ping()
     {
         return true;
@@ -83,7 +80,7 @@ class Swift_Transport_NullTransport implements Swift_Transport
             \count((array) $message->getTo())
             + \count((array) $message->getCc())
             + \count((array) $message->getBcc())
-            );
+        );
 
         return $count;
     }

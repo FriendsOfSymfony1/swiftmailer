@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
+class Swift_Plugins_DecoratorPluginTest extends SwiftMailerTestCase
 {
     public function testMessageBodyReceivesReplacements()
     {
@@ -10,7 +10,7 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
             ['chris.corbyn@swiftmailer.org' => 'Chris'],
             'Subject',
             'Hello {name}, you are customer #{id}'
-            );
+        );
         $message->shouldReceive('setBody')
                 ->once()
                 ->with('Hello Zip, you are customer #456');
@@ -19,7 +19,7 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
 
         $plugin = $this->createPlugin(
             ['zip@button.tld' => ['{name}' => 'Zip', '{id}' => '456']]
-            );
+        );
 
         $evt = $this->createSendEvent($message);
 
@@ -35,7 +35,7 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
             ['chris.corbyn@swiftmailer.org' => 'Chris'],
             'Subject',
             'Hello {name}, you are customer #{id}'
-            );
+        );
         $message->shouldReceive('setBody')
                 ->once()
                 ->with('Hello Zip, you are customer #456');
@@ -53,7 +53,7 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
                 'foo@bar.tld' => ['{name}' => 'Foo', '{id}' => '123'],
                 'zip@button.tld' => ['{name}' => 'Zip', '{id}' => '456'],
                 ]
-            );
+        );
 
         $evt = $this->createSendEvent($message);
 
@@ -76,7 +76,7 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
             ['chris.corbyn@swiftmailer.org' => 'Chris'],
             'A message for {name}!',
             'Hello {name}, you are customer #{id}'
-            );
+        );
 
         $message->shouldReceive('setBody')
                 ->once()
@@ -96,7 +96,7 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
 
         $plugin = $this->createPlugin(
             ['zip@button.tld' => ['{name}' => 'Zip', '{id}' => '456']]
-            );
+        );
         $evt = $this->createSendEvent($message);
 
         $plugin->beforeSendPerformed($evt);
@@ -113,7 +113,7 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
             ['chris.corbyn@swiftmailer.org' => 'Chris'],
             'A message for {name}!',
             'Subject'
-            );
+        );
         $message->shouldReceive('getChildren')
                 ->zeroOrMoreTimes()
                 ->andReturn([$part1, $part2]);
@@ -130,7 +130,7 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
 
         $plugin = $this->createPlugin(
             ['zip@button.tld' => ['{name}' => 'Zip', '{id}' => '456']]
-            );
+        );
 
         $evt = $this->createSendEvent($message);
 
@@ -146,7 +146,7 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
             ['chris.corbyn@swiftmailer.org' => 'Chris'],
             'Subject',
             'Something {a}'
-            );
+        );
 
         $replacements = $this->createReplacements();
 

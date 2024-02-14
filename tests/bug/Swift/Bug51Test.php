@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Bug51Test extends \SwiftMailerTestCase
+class Swift_Bug51Test extends SwiftMailerTestCase
 {
     private $attachmentFile;
     private $outputFile;
@@ -22,7 +22,7 @@ class Swift_Bug51Test extends \SwiftMailerTestCase
 
     public function testAttachmentsDoNotGetTruncatedUsingToByteStream()
     {
-        //Run 100 times with 10KB attachments
+        // Run 100 times with 10KB attachments
         for ($i = 0; $i < 10; ++$i) {
             $message = $this->createMessageWithRandomAttachment(
                 10000, $this->attachmentFile
@@ -44,7 +44,7 @@ class Swift_Bug51Test extends \SwiftMailerTestCase
 
     public function testAttachmentsDoNotGetTruncatedUsingToString()
     {
-        //Run 100 times with 10KB attachments
+        // Run 100 times with 10KB attachments
         for ($i = 0; $i < 10; ++$i) {
             $message = $this->createMessageWithRandomAttachment(
                 10000, $this->attachmentFile
@@ -103,7 +103,7 @@ class Swift_Bug51Test extends \SwiftMailerTestCase
             ->setFrom('a@b.c')
             ->setTo('d@e.f')
             ->attach(Swift_Attachment::fromPath($attachmentPath))
-            ;
+        ;
 
         return $message;
     }

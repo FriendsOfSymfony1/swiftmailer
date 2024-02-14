@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Mime_SimpleHeaderSetTest extends \PHPUnit\Framework\TestCase
+class Swift_Mime_SimpleHeaderSetTest extends PHPUnit\Framework\TestCase
 {
     public function testAddMailboxHeaderDelegatesToFactory()
     {
@@ -51,7 +51,7 @@ class Swift_Mime_SimpleHeaderSetTest extends \PHPUnit\Framework\TestCase
         $set = $this->createSet($factory);
         $set->addParameterizedHeader('Content-Type', 'text/plain',
             ['charset' => 'utf-8']
-            );
+        );
     }
 
     public function testAddIdHeaderDelegatesToFactory()
@@ -136,7 +136,7 @@ class Swift_Mime_SimpleHeaderSetTest extends \PHPUnit\Framework\TestCase
         $set = $this->createSet($factory);
         $set->addParameterizedHeader('Content-Type', 'text/plain',
             ['charset' => 'utf-8']
-            );
+        );
         $this->assertTrue($set->has('Content-Type'));
     }
 
@@ -293,7 +293,7 @@ class Swift_Mime_SimpleHeaderSetTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals([$header0, $header1, $header2],
             $set->getAll('Message-ID')
-            );
+        );
     }
 
     public function testGetAllReturnsAllHeadersIfNoArguments()
@@ -322,7 +322,7 @@ class Swift_Mime_SimpleHeaderSetTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals([$header0, $header1, $header2],
             $set->getAll()
-            );
+        );
     }
 
     public function testGetAllReturnsEmptyArrayIfNoneSet()
@@ -529,7 +529,7 @@ class Swift_Mime_SimpleHeaderSetTest extends \PHPUnit\Framework\TestCase
             "Foo: bar\r\n".
             "Zip: buttons\r\n",
             $set->toString()
-            );
+        );
     }
 
     public function testHeadersWithoutBodiesAreNotDisplayed()
@@ -552,7 +552,7 @@ class Swift_Mime_SimpleHeaderSetTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(
             "Foo: bar\r\n",
             $set->toString()
-            );
+        );
     }
 
     public function testHeadersWithoutBodiesCanBeForcedToDisplay()
@@ -577,7 +577,7 @@ class Swift_Mime_SimpleHeaderSetTest extends \PHPUnit\Framework\TestCase
             "Foo: \r\n".
             "Zip: \r\n",
             $set->toString()
-            );
+        );
     }
 
     public function testHeaderSequencesCanBeSpecified()
@@ -608,7 +608,7 @@ class Swift_Mime_SimpleHeaderSetTest extends \PHPUnit\Framework\TestCase
             "Second: two\r\n".
             "Third: three\r\n",
             $set->toString()
-            );
+        );
     }
 
     public function testUnsortedHeadersAppearAtEnd()
@@ -647,7 +647,7 @@ class Swift_Mime_SimpleHeaderSetTest extends \PHPUnit\Framework\TestCase
             "Fourth: four\r\n".
             "Fifth: five\r\n",
             $set->toString()
-            );
+        );
     }
 
     public function testSettingCharsetNotifiesAlreadyExistingHeaders()

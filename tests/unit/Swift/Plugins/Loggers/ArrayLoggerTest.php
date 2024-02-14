@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Plugins_Loggers_ArrayLoggerTest extends \PHPUnit\Framework\TestCase
+class Swift_Plugins_Loggers_ArrayLoggerTest extends PHPUnit\Framework\TestCase
 {
     public function testAddingSingleEntryDumpsSingleLine()
     {
@@ -23,7 +23,7 @@ class Swift_Plugins_Loggers_ArrayLoggerTest extends \PHPUnit\Framework\TestCase
             ">> RSET\r\n".PHP_EOL.
             "<< 250 OK\r\n",
             $logger->dump()
-            );
+        );
     }
 
     public function testLogCanBeCleared()
@@ -40,7 +40,7 @@ class Swift_Plugins_Loggers_ArrayLoggerTest extends \PHPUnit\Framework\TestCase
             ">> RSET\r\n".PHP_EOL.
             "<< 250 OK\r\n",
             $logger->dump()
-            );
+        );
 
         $logger->clear();
 
@@ -60,6 +60,6 @@ class Swift_Plugins_Loggers_ArrayLoggerTest extends \PHPUnit\Framework\TestCase
             "<< 250 OK\r\n",
             $logger->dump(),
             '%s: Log should be truncated to last 2 entries'
-            );
+        );
     }
 }

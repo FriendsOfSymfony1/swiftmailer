@@ -1,6 +1,6 @@
 <?php
 
-class Swift_Transport_StreamBuffer_SocketTimeoutTest extends \PHPUnit\Framework\TestCase
+class Swift_Transport_StreamBuffer_SocketTimeoutTest extends PHPUnit\Framework\TestCase
 {
     protected $buffer;
     protected $server;
@@ -12,7 +12,7 @@ class Swift_Transport_StreamBuffer_SocketTimeoutTest extends \PHPUnit\Framework\
             $this->markTestSkipped(
                 'Cannot run test without an SMTP host to connect to (define '.
                 'SWIFT_SMTP_HOST in tests/acceptance.conf.php if you wish to run this test)'
-             );
+            );
         }
 
         $serverStarted = false;

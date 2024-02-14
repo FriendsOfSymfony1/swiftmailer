@@ -16,13 +16,13 @@
 class Swift_KeyCache_DiskKeyCache implements Swift_KeyCache
 {
     /** Signal to place pointer at start of file */
-    const POSITION_START = 0;
+    public const POSITION_START = 0;
 
     /** Signal to place pointer at end of file */
-    const POSITION_END = 1;
+    public const POSITION_END = 1;
 
     /** Signal to leave pointer in whatever position it currently is */
-    const POSITION_CURRENT = 2;
+    public const POSITION_CURRENT = 2;
 
     /**
      * An InputStream for cloning.
@@ -128,7 +128,7 @@ class Swift_KeyCache_DiskKeyCache implements Swift_KeyCache
      *
      * @return Swift_InputByteStream
      */
-    public function getInputByteStream($nsKey, $itemKey, Swift_InputByteStream $writeThrough = null)
+    public function getInputByteStream($nsKey, $itemKey, ?Swift_InputByteStream $writeThrough = null)
     {
         $is = clone $this->stream;
         $is->setKeyCache($this);
@@ -147,9 +147,9 @@ class Swift_KeyCache_DiskKeyCache implements Swift_KeyCache
      * @param string $nsKey
      * @param string $itemKey
      *
-     * @throws Swift_IoException
-     *
      * @return string
+     *
+     * @throws Swift_IoException
      */
     public function getString($nsKey, $itemKey)
     {

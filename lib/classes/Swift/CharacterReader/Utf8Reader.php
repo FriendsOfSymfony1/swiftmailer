@@ -78,7 +78,6 @@ class Swift_CharacterReader_Utf8Reader implements Swift_CharacterReader
      * @param string $string
      * @param int    $startOffset
      * @param array  $currentMap
-     * @param mixed  $ignoredChars
      *
      * @return int
      */

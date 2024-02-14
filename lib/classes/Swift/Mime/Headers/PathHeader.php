@@ -39,7 +39,7 @@ class Swift_Mime_Headers_PathHeader extends Swift_Mime_Headers_AbstractHeader
      *
      * @param string $name
      */
-    public function __construct($name, EmailValidator $emailValidator, Swift_AddressEncoder $addressEncoder = null)
+    public function __construct($name, EmailValidator $emailValidator, ?Swift_AddressEncoder $addressEncoder = null)
     {
         $this->setFieldName($name);
         $this->emailValidator = $emailValidator;
@@ -75,8 +75,6 @@ class Swift_Mime_Headers_PathHeader extends Swift_Mime_Headers_AbstractHeader
     /**
      * Get the model for the field body.
      * This method returns a string email address.
-     *
-     * @return mixed
      */
     public function getFieldBodyModel()
     {

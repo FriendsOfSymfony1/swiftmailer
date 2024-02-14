@@ -52,8 +52,6 @@ class Swift_CharacterStream_NgCharacterStream implements Swift_CharacterStream
 
     /**
      * Map.
-     *
-     * @var mixed
      */
     private $map;
 
@@ -165,8 +163,8 @@ class Swift_CharacterStream_NgCharacterStream implements Swift_CharacterStream
             case Swift_CharacterReader::MAP_TYPE_FIXED_LEN:
                 $len = $length * $this->map;
                 $ret = substr($this->datas,
-                        $this->currentPos * $this->map,
-                        $len);
+                    $this->currentPos * $this->map,
+                    $len);
                 $this->currentPos += $length;
                 break;
 

@@ -28,9 +28,6 @@ class Swift_Transport_FailoverTransport extends Swift_Transport_LoadBalancedTran
         parent::__construct();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function ping()
     {
         $maxTransports = \count($this->transports);

@@ -1,15 +1,15 @@
 <?php
 
-class Swift_Mime_HeaderEncoder_QpHeaderEncoderTest extends \SwiftMailerTestCase
+class Swift_Mime_HeaderEncoder_QpHeaderEncoderTest extends SwiftMailerTestCase
 {
-    //Most tests are already covered in QpEncoderTest since this subclass only
+    // Most tests are already covered in QpEncoderTest since this subclass only
     // adds a getName() method
 
     public function testNameIsQ()
     {
         $encoder = $this->createEncoder(
             $this->createCharacterStream(true)
-            );
+        );
         $this->assertEquals('Q', $encoder->getName());
     }
 
@@ -29,7 +29,7 @@ class Swift_Mime_HeaderEncoder_QpHeaderEncoderTest extends \SwiftMailerTestCase
         $encoder = $this->createEncoder($charStream);
         $this->assertDoesNotMatchRegularExpression('~[ \t]~', $encoder->encodeString("a \t b"),
             '%s: encoded-words in headers cannot contain LWSP as per RFC 2047.'
-            );
+        );
     }
 
     public function testSpaceIsRepresentedByUnderscore()
@@ -60,7 +60,7 @@ class Swift_Mime_HeaderEncoder_QpHeaderEncoderTest extends \SwiftMailerTestCase
         $encoder = $this->createEncoder($charStream);
         $this->assertEquals('a_b', $encoder->encodeString('a b'),
             '%s: Spaces can be represented by more readable underscores as per RFC 2047.'
-            );
+        );
     }
 
     public function testEqualsAndQuestionAndUnderscoreAreEncoded()
@@ -89,7 +89,7 @@ class Swift_Mime_HeaderEncoder_QpHeaderEncoderTest extends \SwiftMailerTestCase
         $encoder = $this->createEncoder($charStream);
         $this->assertEquals('=3D=3F=5F', $encoder->encodeString('=?_'),
             '%s: Chars =, ? and _ (underscore) may not appear as per RFC 2047.'
-            );
+        );
     }
 
     public function testParensAndQuotesAreEncoded()
@@ -116,7 +116,7 @@ class Swift_Mime_HeaderEncoder_QpHeaderEncoderTest extends \SwiftMailerTestCase
         $encoder = $this->createEncoder($charStream);
         $this->assertEquals('=28=22=29', $encoder->encodeString('(")'),
             '%s: Chars (, " (DQUOTE) and ) may not appear as per RFC 2047.'
-            );
+        );
     }
 
     public function testOnlyCharactersAllowedInPhrasesAreUsed()
@@ -140,7 +140,7 @@ class Swift_Mime_HeaderEncoder_QpHeaderEncoderTest extends \SwiftMailerTestCase
             range(\ord('a'), \ord('z')), range(\ord('A'), \ord('Z')),
             range(\ord('0'), \ord('9')),
             [\ord('!'), \ord('*'), \ord('+'), \ord('-'), \ord('/')]
-            );
+        );
 
         foreach (range(0x00, 0xFF) as $byte) {
             $char = pack('C', $byte);
@@ -159,16 +159,16 @@ class Swift_Mime_HeaderEncoder_QpHeaderEncoderTest extends \SwiftMailerTestCase
             if (\in_array($byte, $allowedBytes)) {
                 $this->assertEquals($char, $encodedChar,
                     '%s: Character '.$char.' should not be encoded.'
-                    );
+                );
             } elseif (0x20 == $byte) {
-                //Special case
+                // Special case
                 $this->assertEquals('_', $encodedChar,
                     '%s: Space character should be replaced.'
-                    );
+                );
             } else {
                 $this->assertEquals(sprintf('=%02X', $byte), $encodedChar,
                     '%s: Byte '.$byte.' should be encoded.'
-                    );
+                );
             }
         }
     }

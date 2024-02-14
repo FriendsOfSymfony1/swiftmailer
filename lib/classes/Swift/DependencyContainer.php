@@ -16,22 +16,22 @@
 class Swift_DependencyContainer
 {
     /** Constant for literal value types */
-    const TYPE_VALUE = 0x00001;
+    public const TYPE_VALUE = 0x00001;
 
     /** Constant for new instance types */
-    const TYPE_INSTANCE = 0x00010;
+    public const TYPE_INSTANCE = 0x00010;
 
     /** Constant for shared instance types */
-    const TYPE_SHARED = 0x00100;
+    public const TYPE_SHARED = 0x00100;
 
     /** Constant for aliases */
-    const TYPE_ALIAS = 0x01000;
+    public const TYPE_ALIAS = 0x01000;
 
     /** Constant for arrays */
-    const TYPE_ARRAY = 0x10000;
+    public const TYPE_ARRAY = 0x10000;
 
     /** Singleton instance */
-    private static $instance = null;
+    private static $instance;
 
     /** The data container */
     private $store = [];
@@ -93,8 +93,6 @@ class Swift_DependencyContainer
      * @see register()
      *
      * @param string $itemName
-     *
-     * @return mixed
      *
      * @throws Swift_DependencyException If the dependency is not found
      */
@@ -160,8 +158,6 @@ class Swift_DependencyContainer
      * Specify the previously registered item as a literal value.
      *
      * {@link register()} must be called before this will work.
-     *
-     * @param mixed $value
      *
      * @return $this
      */
@@ -271,8 +267,6 @@ class Swift_DependencyContainer
      *
      * @see withDependencies(), addConstructorLookup()
      *
-     * @param mixed $value
-     *
      * @return $this
      */
     public function addConstructorValue($value)
@@ -326,7 +320,7 @@ class Swift_DependencyContainer
         if ($reflector->getConstructor()) {
             return $reflector->newInstanceArgs(
                 $this->createDependenciesFor($itemName)
-                );
+            );
         }
 
         return $reflector->newInstance();

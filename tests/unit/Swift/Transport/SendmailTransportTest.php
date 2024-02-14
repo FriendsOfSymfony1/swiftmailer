@@ -33,7 +33,7 @@ class Swift_Transport_SendmailTransportTest extends Swift_Transport_AbstractSmtp
         $this->assertEquals('/usr/sbin/sendmail -oi -t', $sendmail->getCommand());
     }
 
-    public function testSendingMessageIn_t_ModeUsesSimplePipe()
+    public function testSendingMessageInTModeUsesSimplePipe()
     {
         $buf = $this->getBuffer();
         $sendmail = $this->getSendmail($buf);
@@ -60,7 +60,7 @@ class Swift_Transport_SendmailTransportTest extends Swift_Transport_AbstractSmtp
         $this->assertEquals(2, $sendmail->send($message));
     }
 
-    public function testSendingIn_t_ModeWith_i_FlagDoesntEscapeDot()
+    public function testSendingInTModeWithIFlagDoesntEscapeDot()
     {
         $buf = $this->getBuffer();
         $sendmail = $this->getSendmail($buf);
@@ -87,7 +87,7 @@ class Swift_Transport_SendmailTransportTest extends Swift_Transport_AbstractSmtp
         $this->assertEquals(2, $sendmail->send($message));
     }
 
-    public function testSendingInTModeWith_oi_FlagDoesntEscapeDot()
+    public function testSendingInTModeWithOiFlagDoesntEscapeDot()
     {
         $buf = $this->getBuffer();
         $sendmail = $this->getSendmail($buf);

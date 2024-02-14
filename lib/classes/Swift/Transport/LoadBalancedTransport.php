@@ -34,7 +34,7 @@ class Swift_Transport_LoadBalancedTransport implements Swift_Transport
      *
      * @var Swift_Transport
      */
-    protected $lastUsedTransport = null;
+    protected $lastUsedTransport;
 
     // needed as __construct is called from elsewhere explicitly
     public function __construct()
@@ -100,9 +100,6 @@ class Swift_Transport_LoadBalancedTransport implements Swift_Transport
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function ping()
     {
         foreach ($this->transports as $transport) {
