@@ -1,12 +1,25 @@
 Changelog
 =========
 
-**Swiftmailer will stop being maintained at the end of November 2021.**
+**Swiftmailer has stopped being maintained at the end of November 2021.**
 
 Please, move to Symfony Mailer at your earliest convenience.
 Symfony Mailer is the next evolution of Swiftmailer.
 It provides the same features with support for modern PHP code and support for third-party providers.
 See https://symfony.com/doc/current/mailer.html for more information.
+
+6.4.0 (2024-02-15)
+------------------
+
+* Rename library, and bump support to php ^7.4 or ^8.1 by @thePanz
+* Added composer replace to fulfil  swiftmailer/swiftmailer dependency by installing this package. by @thirsch in https://github.com/FriendsOfSymfony1/swiftmailer/pull/7
+* drop tests below 7.4 by @connorhu in https://github.com/FriendsOfSymfony1/swiftmailer/pull/5
+* php 8.2 support by @thirsch in https://github.com/FriendsOfSymfony1/swiftmailer/pull/6
+* Adjusting the repo readme to reflect fork purpose. by @thirsch in https://github.com/FriendsOfSymfony1/swiftmailer/pull/10
+* Adding php 8.3 to the party by @thirsch in https://github.com/FriendsOfSymfony1/swiftmailer/pull/13
+* Updating github action steps to fix deprecations. by @thirsch in https://github.com/FriendsOfSymfony1/swiftmailer/pull/11
+* Fixing test deprecations by @thirsch in https://github.com/FriendsOfSymfony1/swiftmailer/pull/12
+* apply cs fixer by @connorhu in https://github.com/FriendsOfSymfony1/swiftmailer/pull/4
 
 6.3.0 (2021-10-18)
 ------------------
