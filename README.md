@@ -5,7 +5,13 @@ About this version
 
 This is a community driven fork of swiftmailer, as official support has been [ended in November 2021](https://symfony.com/blog/the-end-of-swiftmailer).
 
-**Do not use it for new projects: the aim of this fork is to make this library compatible with never php versions, but [the newer Symfony Mailer Compontent](https://symfony.com/doc/current/mailer.html) is the way to go today.**
+**Do not use it for new projects, [the newer Symfony Mailer Compontent](https://symfony.com/doc/current/mailer.html) is the way to go today.**
+
+🎯 The main purpose of this fork
+--------------------------------
+
+To support same PHP versions as latest version of [FriendsOfSymfony1/symfony1](https://github.com/FriendsOfSymfony1/symfony1).
+
 
 Swift Mailer
 ------------
