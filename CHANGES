@@ -1,6 +1,11 @@
 Changelog
 =========
 
+5.4.13 (2024-02-27)
+-------------------
+
+ * Cherry-picked 5878b18b36c2c119ef0e8cd49c3d73ee94ca0fed: "Don't trust properties at destruct time"
+
 5.4.12 (2018-07-31)
 -------------------
 
