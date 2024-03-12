@@ -6,6 +6,8 @@
 *.txt -crlf
 
 # ignore directories in the git-generated distributed .zip archive
+/.github export-ignore
 /doc/notes export-ignore
 /tests export-ignore
 /phpunit.xml.dist export-ignore
+/.php-cs-fixer.dist.php export-ignore
