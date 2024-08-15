@@ -56,7 +56,9 @@ class Swift_Mime_ContentEncoder_QpContentEncoderProxy implements Swift_Mime_Cont
     }
 
     /**
-     * {@inheritdoc}
+     * Notify this observer that the entity's charset has changed.
+     *
+     * @param string $charset
      */
     public function charsetChanged($charset)
     {
@@ -65,7 +67,12 @@ class Swift_Mime_ContentEncoder_QpContentEncoderProxy implements Swift_Mime_Cont
     }
 
     /**
-     * {@inheritdoc}
+     * Encode $in to $out.
+     *
+     * @param Swift_OutputByteStream $os              to read from
+     * @param Swift_InputByteStream  $is              to write to
+     * @param int                    $firstLineOffset
+     * @param int                    $maxLineLength   - 0 indicates the default length for this encoding
      */
     public function encodeByteStream(Swift_OutputByteStream $os, Swift_InputByteStream $is, $firstLineOffset = 0, $maxLineLength = 0)
     {
@@ -73,7 +80,7 @@ class Swift_Mime_ContentEncoder_QpContentEncoderProxy implements Swift_Mime_Cont
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getName()
     {
@@ -81,7 +88,13 @@ class Swift_Mime_ContentEncoder_QpContentEncoderProxy implements Swift_Mime_Cont
     }
 
     /**
-     * {@inheritdoc}
+     * Encode a given string to produce an encoded string.
+     *
+     * @param string $string
+     * @param int    $firstLineOffset ignored
+     * @param int    $maxLineLength   - 0 means no wrapping will occur
+     *
+     * @return string
      */
     public function encodeString($string, $firstLineOffset = 0, $maxLineLength = 0)
     {
