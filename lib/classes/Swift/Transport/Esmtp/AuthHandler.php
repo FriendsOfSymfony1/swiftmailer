@@ -39,7 +39,7 @@ class Swift_Transport_Esmtp_AuthHandler implements Swift_Transport_EsmtpHandler
     /**
      * The auth mode for authentication.
      *
-     * @var string
+     * @var string|null
      */
     private $_auth_mode;
 
@@ -248,7 +248,7 @@ class Swift_Transport_Esmtp_AuthHandler implements Swift_Transport_EsmtpHandler
      */
     protected function _getAuthenticatorsForAgent()
     {
-        if (!$mode = strtolower($this->_auth_mode)) {
+        if (!$this->_auth_mode || !$mode = strtolower($this->_auth_mode)) {
             return $this->_authenticators;
         }
 
