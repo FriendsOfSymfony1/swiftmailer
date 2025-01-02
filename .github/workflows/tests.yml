@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: ['7.4', '8.1', '8.2', '8.3']
+        php: ['7.4', '8.1', '8.2', '8.3', '8.4']
 
     name: PHP ${{ matrix.php }}
 
@@ -37,10 +37,6 @@ jobs:
         run: |
           cp tests/acceptance.conf.php.default tests/acceptance.conf.php
           cp tests/smoke.conf.php.default tests/smoke.conf.php
-
-      - name: Require Symfony PHPUnit Bridge 5.4 for PHP 8.1
-        if: ${{ matrix.php >= 8.1 }}
-        run: composer require symfony/phpunit-bridge:^5.4 --dev --prefer-dist --no-interaction --no-progress
 
       - name: Install dependencies
         uses: nick-fields/retry@v3
