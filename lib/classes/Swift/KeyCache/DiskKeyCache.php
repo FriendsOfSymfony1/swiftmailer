@@ -43,7 +43,7 @@ class Swift_KeyCache_DiskKeyCache implements Swift_KeyCache
      *
      * @var array
      */
-    private $_keys = array();
+    private $_keys = [];
 
     /**
      * Create a new DiskKeyCache with the given $stream for cloning to make
@@ -298,6 +298,6 @@ class Swift_KeyCache_DiskKeyCache implements Swift_KeyCache
 
     public function __wakeup()
     {
-        $this->keys = [];
+        $this->_keys = [];
     }
 }
