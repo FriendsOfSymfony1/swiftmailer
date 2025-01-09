@@ -846,7 +846,7 @@ class Swift_Mime_SimpleMimeEntity implements Swift_Mime_MimeEntity
 
     public function __wakeup()
     {
-        $this->cacheKey = bin2hex(random_bytes(16)); // set 32 hex values
-        $this->cache = new Swift_KeyCache_ArrayKeyCache(new Swift_KeyCache_SimpleKeyCacheInputStream());
+        $this->_cacheKey = bin2hex(random_bytes(16)); // set 32 hex values
+        $this->_cache = new Swift_KeyCache_ArrayKeyCache(new Swift_KeyCache_SimpleKeyCacheInputStream());
     }
 }
