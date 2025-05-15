@@ -30,7 +30,7 @@
         "symfony/phpunit-bridge": "^7"
     },
     "replace": {
-        "swiftmailer/swiftmailer": "^6"
+        "swiftmailer/swiftmailer": "^6.3"
     },
     "suggest": {
         "ext-intl": "Needed to support internationalized email addresses"
