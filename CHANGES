@@ -11,6 +11,9 @@ See https://symfony.com/doc/current/mailer.html for more information.
 Upcoming
 --------
 
+6.4.3 (2026-06-01)
+------------------
+
 * Replace dockage/mailcatcher with axllent/mailpit for CI tests
 * Pin CI runner from ubuntu-latest to ubuntu-24.04
 
