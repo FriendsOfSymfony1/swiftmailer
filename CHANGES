@@ -11,12 +11,16 @@ See https://symfony.com/doc/current/mailer.html for more information.
 Upcoming
 --------
 
-* Add PHP 8.5 support
-* Fix deprecations for PHP 8.5 compatibility
-* Update CI pipeline to Ubuntu 22.04
-* Skip test incompatible with newer OpenSSL
 * Replace dockage/mailcatcher with axllent/mailpit for CI tests
 * Pin CI runner from ubuntu-latest to ubuntu-24.04
+
+6.4.2 (2026-05-26)
+------------------
+
+* Add PHP 8.5 support
+* Fix deprecations for PHP 8.5 compatibility
+* Update CI pipeline to use ubuntu-latest
+* Skip test incompatible with newer OpenSSL
 
 6.4.1 (2025-05-16)
 ------------------
